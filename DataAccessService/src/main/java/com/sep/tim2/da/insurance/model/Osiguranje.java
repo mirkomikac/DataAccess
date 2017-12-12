@@ -1,13 +1,21 @@
 package com.sep.tim2.da.insurance.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "osiguranje")
@@ -24,10 +32,10 @@ public class Osiguranje implements Serializable{
 	private Polisa polisa;
 	
 	@ManyToOne
-	private TipOsiguranja tipoviOsiguranja;
+	private TipOsiguranja tipOsiguranja;
 	
-	//@OneToMany(mappedBy = "osiguranje", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	//private List<VrednostAtributaOsiguranja> vrednostiAtributaOsiguranja;
+	@OneToMany(mappedBy = "osiguranje", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<VrednostAtributaOsiguranja> vrednostiAtributaOsiguranja;
 
 	public Osiguranje() {
 	}
@@ -48,15 +56,14 @@ public class Osiguranje implements Serializable{
 		this.polisa = polisa;
 	}
 	
-	public TipOsiguranja getTipoviOsiguranja() {
-		return tipoviOsiguranja;
+	public TipOsiguranja getTipOsiguranja() {
+		return tipOsiguranja;
 	}
 	
-	public void setTipoviOsiguranja(TipOsiguranja tipoviOsiguranja) {
-		this.tipoviOsiguranja = tipoviOsiguranja;
+	public void setTipOsiguranja(TipOsiguranja tipOsiguranja) {
+		this.tipOsiguranja = tipOsiguranja;
 	}
 	
-	/*
 	@JsonIgnore
 	public List<VrednostAtributaOsiguranja> getVrednostiAtributaOsiguranja() {
 		if(vrednostiAtributaOsiguranja == null) {
@@ -69,5 +76,4 @@ public class Osiguranje implements Serializable{
 	public void setVrednostiAtributaOsiguranja(List<VrednostAtributaOsiguranja> vrednostiAtributaOsiguranja) {
 		this.vrednostiAtributaOsiguranja = vrednostiAtributaOsiguranja;
 	}
-	*/
 }

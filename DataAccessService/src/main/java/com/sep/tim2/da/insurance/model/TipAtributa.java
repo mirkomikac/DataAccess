@@ -4,16 +4,49 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TipAtributa implements Serializable{
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+public class TipAtributa implements Serializable{
+	
 	private static final long serialVersionUID = 5218576756408205556L;
+	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(nullable = false)
 	private String naziv;
+	
+	@Enumerated(EnumType.STRING)
 	private DomenAtributa domen;
+	
+	@Column(nullable = false)
 	private Boolean obavezan;
+	
+	@ManyToOne(optional = false)
 	private KontekstAtributa kontekst;
-	//private List<PredefinisanaVrednost> predefinisaneVrednosti;
-	//private List<VrednostAtributaOsiguranja> vrednostiAtributa;
+	
+	@OneToMany(mappedBy="tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PredefinisanaVrednost> predefinisaneVrednosti;
+	
+	@OneToMany(mappedBy="tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<VrednostAtributaOsiguranja> vrednostiAtributa;
+	
+	@ManyToMany(targetEntity=com.sep.tim2.da.insurance.model.TipOsiguranja.class)
 	private List<TipOsiguranja> tipoviOsiguranja;
 	
 	public TipAtributa() {
@@ -58,7 +91,8 @@ public class TipAtributa implements Serializable{
 	public void setKontekst(KontekstAtributa kontekst) {
 		this.kontekst = kontekst;
 	}
-	/*
+	
+	@JsonIgnore
 	public List<PredefinisanaVrednost> getPredefinisaneVrednosti() {
 		if(predefinisaneVrednosti == null) {
 			predefinisaneVrednosti = new ArrayList<>();
@@ -66,10 +100,12 @@ public class TipAtributa implements Serializable{
 		return predefinisaneVrednosti;
 	}
 
+	@JsonProperty
 	public void setPredefinisaneVrednosti(List<PredefinisanaVrednost> predefinisaneVrednosti) {
 		this.predefinisaneVrednosti = predefinisaneVrednosti;
 	}
-
+	
+	@JsonIgnore
 	public List<VrednostAtributaOsiguranja> getVrednostiAtributa() {
 		if(vrednostiAtributa == null) {
 			vrednostiAtributa = new ArrayList<>();
@@ -77,10 +113,12 @@ public class TipAtributa implements Serializable{
 		return vrednostiAtributa;
 	}
 	
+	@JsonProperty
 	public void setVrednostiAtributa(List<VrednostAtributaOsiguranja> vrednostiAtributa) {
 		this.vrednostiAtributa = vrednostiAtributa;
 	}
-	*/
+	
+	@JsonIgnore
 	public List<TipOsiguranja> getTipoviOsiguranja() {
 		if(tipoviOsiguranja == null) {
 			tipoviOsiguranja = new ArrayList<>();
@@ -88,6 +126,7 @@ public class TipAtributa implements Serializable{
 		return tipoviOsiguranja;
 	}
 
+	@JsonProperty
 	public void setTipoviOsiguranja(List<TipOsiguranja> tipoviOsiguranja) {
 		this.tipoviOsiguranja = tipoviOsiguranja;
 	}

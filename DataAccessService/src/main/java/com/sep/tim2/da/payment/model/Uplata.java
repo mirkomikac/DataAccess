@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.sep.tim2.da.insurance.model.Polisa;
 
 @Entity
 @Table(name = "uplata")
