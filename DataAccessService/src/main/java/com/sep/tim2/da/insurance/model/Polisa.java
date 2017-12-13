@@ -2,6 +2,7 @@ package com.sep.tim2.da.insurance.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,14 +31,16 @@ public class Polisa implements Serializable{
 	private Long id;
 	
 	@Column
+	private Date datumSklapanja;
+	
+	@Column
 	private Double cena;
 	
 	@OneToMany(mappedBy = "polisa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Osiguranje> osiguranja;
 	
-	@ManyToMany(targetEntity = com.sep.tim2.da.insurance.model.Klijent.class)
-	private List<Klijent> klijenti;
-	
+	@ManyToOne
+	private Klijent klijent;
 	
 	public Polisa() {
 	}
@@ -48,6 +51,14 @@ public class Polisa implements Serializable{
 	
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Date getDatumSklapanja() {
+		return datumSklapanja;
+	}
+
+	public void setDatumSklapanja(Date datumSklapanja) {
+		this.datumSklapanja = datumSklapanja;
 	}
 	
 	public Double getCena() {
@@ -72,16 +83,13 @@ public class Polisa implements Serializable{
 	}
 	
 	@JsonIgnore
-	public List<Klijent> getKlijenti() {
-		if(klijenti == null) {
-			return new ArrayList<Klijent>();
-		}
-		return klijenti;
+	public Klijent getKlijent() {
+		return klijent;
 	}
 	
 	@JsonProperty
-	public void setKlijenti(List<Klijent> klijenti) {
-		this.klijenti = klijenti;
+	public void setKlijent(Klijent klijent) {
+		this.klijent = klijent;
 	}
-	
+
 }
