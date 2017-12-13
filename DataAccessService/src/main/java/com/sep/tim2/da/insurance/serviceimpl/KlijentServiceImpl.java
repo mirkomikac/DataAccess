@@ -1,9 +1,12 @@
 package com.sep.tim2.da.insurance.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sep.tim2.da.insurance.model.Klijent;
 import com.sep.tim2.da.insurance.repository.KlijentRepository;
 import com.sep.tim2.da.insurance.service.KlijentService;
 
@@ -16,6 +19,33 @@ public class KlijentServiceImpl implements KlijentService {
 	@Autowired
 	public KlijentServiceImpl(KlijentRepository klijentRepository) {
 		this.klijentRepository = klijentRepository;
+	}
+
+	@Override
+	public Klijent createKlijent(Klijent klijent) {
+		return klijentRepository.save(klijent);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Klijent getKlijent(Long klijentId) {
+		return klijentRepository.findOne(klijentId);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Klijent> getKlijenti() {
+		return klijentRepository.findAll();
+	}
+
+	@Override
+	public Klijent updateKlijent(Klijent klijent) {
+		return this.createKlijent(klijent);
+	}
+
+	@Override
+	public void deleteKlijent(Long klijentId) {
+		klijentRepository.delete(klijentId);
 	}
 	
 }
