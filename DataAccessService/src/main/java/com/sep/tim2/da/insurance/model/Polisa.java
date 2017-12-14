@@ -13,21 +13,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "Polisa")
 public class Polisa implements Serializable{
 
 	private static final long serialVersionUID = -6901258118812785721L;
 	
 	@Id
-	@SequenceGenerator(name = "POLISA_SEQ", allocationSize = 10)
-	@GeneratedValue(generator = "POLISA_SEQ")
+	@GeneratedValue
 	private Long id;
 	
 	@Column

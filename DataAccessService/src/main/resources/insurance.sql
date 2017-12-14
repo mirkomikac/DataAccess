@@ -238,9 +238,3 @@ insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(30, 'Nikola', 2, 31);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(31, 'Sajic', 2, 32);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(32, '2407994780147', 2, 33);
-
---POLISE U DRUGOJ BAZI
-insert into payment.polisa(id, cena) values (1, 1000);
-
---UPLATE ZA POLISE
-insert into payment.uplata(id, datumUplate, status, polisa_id) values(1, '2017-08-16 00:00:00', 'UPLACENO', 1);

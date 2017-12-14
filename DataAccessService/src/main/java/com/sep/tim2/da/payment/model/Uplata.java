@@ -10,19 +10,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
 
 @Entity
-@Table(name = "uplata")
 public class Uplata implements Serializable{
 
 	private static final long serialVersionUID = -2184014031936616233L;
 
 	@Id
-	@SequenceGenerator(name = "UPLATA_SEQ", allocationSize = 10)
-	@GeneratedValue(generator = "UPLATA_SEQ")
+	@GeneratedValue
 	private Long id;
 
 	@Enumerated(EnumType.STRING)

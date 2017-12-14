@@ -18,12 +18,12 @@ import com.sep.tim2.da.payment.service.PolisaService;
 
 @RestController
 @RequestMapping("/payment/polise")
-public class PolisaController {
+public class PolisaPaymentController {
 
 	private final PolisaService polisaService;
 	
 	@Autowired
-	public PolisaController(PolisaService polisaService) {
+	public PolisaPaymentController(PolisaService polisaService) {
 		this.polisaService = polisaService;
 	}
 	

@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sep.tim2.da.payment.model.Polisa;
-import com.sep.tim2.da.payment.repository.PolisaRepository;
+import com.sep.tim2.da.payment.repository.PolisaPaymentRepository;
 import com.sep.tim2.da.payment.service.PolisaService;
 
 @Service
 @Transactional
-public class PolisaServiceImpl implements PolisaService{
+public class PolisaPaymentServiceImpl implements PolisaService{
 
-	private final PolisaRepository polisaRepository;
+	private final PolisaPaymentRepository polisaRepository;
 	
 	@Autowired
-	public PolisaServiceImpl(PolisaRepository polisaRepository) {
+	public PolisaPaymentServiceImpl(PolisaPaymentRepository polisaRepository) {
 		this.polisaRepository = polisaRepository;
 	}
 	
@@ -40,7 +40,9 @@ public class PolisaServiceImpl implements PolisaService{
 
 	@Override
 	public Polisa updatePolisa(Polisa polisa) {
-		return this.createPolisa(polisa);
+		Polisa updatePolisa = polisaRepository.findOne(polisa.getId());
+		updatePolisa.setCena(polisa.getCena());
+		return this.createPolisa(updatePolisa);
 	}
 
 	@Override

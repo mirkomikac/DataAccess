@@ -11,21 +11,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "osiguranje")
 public class Osiguranje implements Serializable{
 	
 	private static final long serialVersionUID = -7663607432545399871L;
 
 	@Id
-	@SequenceGenerator(name = "OSIGURANJE_SEQ", allocationSize = 10)
-	@GeneratedValue(generator = "OSIGURANJE_SEQ")
+	@GeneratedValue
 	private Long id;
 	
 	@ManyToOne
