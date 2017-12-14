@@ -7,23 +7,33 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sep.tim2.da.insurance.model.PredefinisanaVrednost;
+import com.sep.tim2.da.insurance.model.TipAtributa;
 import com.sep.tim2.da.insurance.repository.PredefinisanaVrednostRepository;
 import com.sep.tim2.da.insurance.service.PredefinisanaVrednostService;
+import com.sep.tim2.da.insurance.service.TipAtributaService;
 
 @Service
 @Transactional
 public class PredefinisanaVrednostServiceImpl implements PredefinisanaVrednostService{
 	
 	private final PredefinisanaVrednostRepository predefinisanaVrednostRepository;
+	private final TipAtributaService tipAtributaService;
 	
 	@Autowired
-	public PredefinisanaVrednostServiceImpl(PredefinisanaVrednostRepository predefinisanaVrednostRepository) {
+	public PredefinisanaVrednostServiceImpl(PredefinisanaVrednostRepository predefinisanaVrednostRepository,
+											TipAtributaService tipAtributaService) {
 		this.predefinisanaVrednostRepository = predefinisanaVrednostRepository;
+		this.tipAtributaService = tipAtributaService;
 	}
 
 	@Override
 	public Collection<PredefinisanaVrednost> getPredefinisaneVrednoste() {
 		return predefinisanaVrednostRepository.findAll();
+	}
+	
+	@Override
+	public Collection<PredefinisanaVrednost> getPredefinisaneVrednostiZaTipAtributa(Long tipAtributaId) {
+		return predefinisanaVrednostRepository.findPredefinisanaVrednostsByTipAtributaId(tipAtributaId);
 	}
 
 	@Override
@@ -32,17 +42,20 @@ public class PredefinisanaVrednostServiceImpl implements PredefinisanaVrednostSe
 	}
 
 	@Override
-	public PredefinisanaVrednost createPredefinisanaVrednost(PredefinisanaVrednost predefinisanaVrednost) {
+	public PredefinisanaVrednost createPredefinisanaVrednost(PredefinisanaVrednost predefinisanaVrednost, Long tipAtributaId) {
+		TipAtributa tipAtributa = tipAtributaService.getTipAtributa(tipAtributaId);
+		predefinisanaVrednost.setTipAtributa(tipAtributa);
 		return predefinisanaVrednostRepository.save(predefinisanaVrednost);
 	}
 
 	@Override
-	public PredefinisanaVrednost updatePredefinisanaVrednost(PredefinisanaVrednost predefinisanaVrednost) {
-		return predefinisanaVrednostRepository.save(predefinisanaVrednost);
+	public PredefinisanaVrednost updatePredefinisanaVrednost(PredefinisanaVrednost predefinisanaVrednost, Long tipAtributaId) {
+		return this.createPredefinisanaVrednost(predefinisanaVrednost, tipAtributaId);
 	}
 
 	@Override
 	public void deletePredefinisanaVrednost(Long id) {
 		predefinisanaVrednostRepository.delete(id);
 	}
+
 }

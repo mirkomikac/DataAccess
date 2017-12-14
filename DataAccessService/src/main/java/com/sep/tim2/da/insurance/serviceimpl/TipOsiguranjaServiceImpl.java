@@ -52,7 +52,7 @@ public class TipOsiguranjaServiceImpl implements TipOsiguranjaService{
 	}
 
 	@Override
-	public TipOsiguranja update(TipOsiguranja tipOsiguranja, Long osiguravajucaKucaId) {
+	public TipOsiguranja updateTipOsiguranja(TipOsiguranja tipOsiguranja, Long osiguravajucaKucaId) {
 		return this.createTipOsiguranja(tipOsiguranja, osiguravajucaKucaId);
 	}
 

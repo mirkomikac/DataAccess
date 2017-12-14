@@ -10,7 +10,7 @@ public interface TipOsiguranjaService {
 	TipOsiguranja getTipOsiguranja(Long tipOsiguranjaId);
 	List<TipOsiguranja> getTipoviOsiguranja();
 	List<TipOsiguranja> getTipoviOsiguranjaZaOsiguravajucuKucu(Long osiguravajucaKucaId);
-	TipOsiguranja update(TipOsiguranja tipOsiguranja, Long osiguravajucaKucaId);
+	TipOsiguranja updateTipOsiguranja(TipOsiguranja tipOsiguranja, Long osiguravajucaKucaId);
 	void deleteTipOsiguranja(Long tipOsiguranjaId);
 	
 }
