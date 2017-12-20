@@ -27,8 +27,8 @@ public class PolisaServiceImpl implements PolisaService{
 	
 	@Override
 	public Polisa createPolisa(Polisa polisa, Long klijentId) {
-		Klijent klijent = klijentService.getKlijent(klijentId);
-		polisa.setKlijent(klijent);
+		//Klijent klijent = klijentService.getKlijent(klijentId);
+		//polisa.setKlijent(klijent);
 		return polisaRepository.save(polisa);
 	}
 

@@ -34,6 +34,7 @@ public class OsiguravajucaKucaController {
 	@GetMapping("/{osiguravajucaKucaId}")
 	@ResponseBody
 	public OsiguravajucaKuca getOsiguravajucaKuca(@PathVariable("osiguravajucaKucaId")Long osiguravajucaKucaId) {
+		System.out.println("vracena");
 		return osiguravajucaKucaService.getOsiguravajucaKuca(osiguravajucaKucaId);
 	}
 	
