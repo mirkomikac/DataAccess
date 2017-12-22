@@ -52,8 +52,11 @@ public class TipOsiguranjaServiceImpl implements TipOsiguranjaService{
 	}
 
 	@Override
-	public TipOsiguranja updateTipOsiguranja(TipOsiguranja tipOsiguranja, Long osiguravajucaKucaId) {
-		return this.createTipOsiguranja(tipOsiguranja, osiguravajucaKucaId);
+	public TipOsiguranja updateTipOsiguranja(TipOsiguranja updateTipOsiguranja, Long osiguravajucaKucaId) {
+		TipOsiguranja tipOsiguranja = tipOsiguranjaRepository.findOne(updateTipOsiguranja.getId());
+		updateTipOsiguranja.setOsiguranja(tipOsiguranja.getOsiguranja());
+		updateTipOsiguranja.setTipoviAtributa(tipOsiguranja.getTipoviAtributa());
+		return this.createTipOsiguranja(updateTipOsiguranja, osiguravajucaKucaId);
 	}
 
 	@Override

@@ -145,7 +145,7 @@ insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(40, 'Autobus', 25);
 
 --CENOVNICI
-insert into cenovnik(id, datumDo, datumOd) values(1, '2017-06-1 00:00:00', '2017-12-31 00:00:00');
+insert into cenovnik(id, datumDo, datumOd, osiguravajucaKuca_id) values(1, '2017-06-1 00:00:00', '2017-12-31 00:00:00', 1);
 
 --STAVKE CENOVNIKA ZA MEDJUNARNODNO PUTNO OSIGURANJE
 insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(1, 700, 1, 1);

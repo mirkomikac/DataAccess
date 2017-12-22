@@ -48,8 +48,12 @@ public class TipAtributaServiceImpl implements TipAtributaService{
 	}
 
 	@Override
-	public TipAtributa updateTipAtributa(TipAtributa tipAtributa, Long kontektsAtributaId) {
-		return this.createTipAtributa(tipAtributa, kontektsAtributaId);
+	public TipAtributa updateTipAtributa(TipAtributa updateTipAtributa, Long kontektsAtributaId) {
+		TipAtributa tipAtributa = tipAtributaRepository.findOne(updateTipAtributa.getId());
+		updateTipAtributa.setPredefinisaneVrednosti(tipAtributa.getPredefinisaneVrednosti());
+		updateTipAtributa.setVrednostiAtributa(tipAtributa.getVrednostiAtributa());
+		updateTipAtributa.setTipoviOsiguranja(tipAtributa.getTipoviOsiguranja());
+		return this.createTipAtributa(updateTipAtributa, kontektsAtributaId);
 	}
 
 	@Override

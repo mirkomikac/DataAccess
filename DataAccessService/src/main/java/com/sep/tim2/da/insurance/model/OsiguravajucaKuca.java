@@ -20,8 +20,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class OsiguravajucaKuca implements Serializable{
 	
 	private static final long serialVersionUID = -4134784298073252398L;
-
-	public OsiguravajucaKuca() {}
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -42,44 +40,58 @@ public class OsiguravajucaKuca implements Serializable{
 	@Column(nullable = true)
 	private String telefon; 
 	
-	
 	@OneToMany(mappedBy="osiguravajucaKuca", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TipOsiguranja> tipoviOsiguranja;
 	
+	@OneToMany(mappedBy = "osiguravajucaKuca", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Cenovnik> listaCenovnika;
+	
+	public OsiguravajucaKuca() {}
 	
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getPib() {
 		return pib;
 	}
+	
 	public void setPib(String pib) {
 		this.pib = pib;
 	}
+	
 	public String getNaziv() {
 		return naziv;
 	}
+	
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
+	
 	public String getAdresa() {
 		return adresa;
 	}
+	
 	public void setAdresa(String adresa) {
 		this.adresa = adresa;
 	}
+	
 	public String getMesto() {
 		return mesto;
 	}
+	
 	public void setMesto(String mesto) {
 		this.mesto = mesto;
 	}
+	
 	public String getTelefon() {
 		return telefon;
 	}
+	
 	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
@@ -95,6 +107,19 @@ public class OsiguravajucaKuca implements Serializable{
 	@JsonProperty
 	public void setTipoviOsiguranja(List<TipOsiguranja> tipoviOsiguranja) {
 		this.tipoviOsiguranja = tipoviOsiguranja;
+	}
+
+	@JsonIgnore
+	public List<Cenovnik> getListaCenovnika() {
+		if(listaCenovnika == null) {
+			return new ArrayList<Cenovnik>();
+		}
+		return listaCenovnika;
+	}
+
+	@JsonProperty
+	public void setListaCenovnika(List<Cenovnik> listaCenovnika) {
+		this.listaCenovnika = listaCenovnika;
 	}
 	
 }

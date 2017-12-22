@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,13 +22,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Cenovnik implements Serializable{
 
 	private static final long serialVersionUID = 9131762390974840535L;
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column
 	private Date datumOd;
+	
 	@Column
 	private Date datumDo;
+	
+	@ManyToOne
+	private OsiguravajucaKuca osiguravajucaKuca;
+	
 	@OneToMany(mappedBy="cenovnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<StavkaCenovnika> stavkeCenovnika;
 	
@@ -57,6 +65,15 @@ public class Cenovnik implements Serializable{
 	public void setDatumDo(Date datumDo) {
 		this.datumDo = datumDo;
 	}
+	
+	public OsiguravajucaKuca getOsiguravajucaKuca() {
+		return osiguravajucaKuca;
+	}
+
+	public void setOsiguravajucaKuca(OsiguravajucaKuca osiguravajucaKuca) {
+		this.osiguravajucaKuca = osiguravajucaKuca;
+	}
+
 	@JsonIgnore
 	public List<StavkaCenovnika> getStavkeCenovnika() {
 		if(stavkeCenovnika == null) {
@@ -64,6 +81,7 @@ public class Cenovnik implements Serializable{
 		}
 		return stavkeCenovnika;
 	}
+	
 	@JsonProperty
 	public void setStavkeCenovnika(List<StavkaCenovnika> stavkeCenovnika) {
 		this.stavkeCenovnika = stavkeCenovnika;

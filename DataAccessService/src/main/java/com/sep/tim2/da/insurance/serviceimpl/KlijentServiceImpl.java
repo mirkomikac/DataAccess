@@ -39,8 +39,10 @@ public class KlijentServiceImpl implements KlijentService {
 	}
 
 	@Override
-	public Klijent updateKlijent(Klijent klijent) {
-		return this.createKlijent(klijent);
+	public Klijent updateKlijent(Klijent updateKlijent) {
+		Klijent klijent = klijentRepository.findOne(updateKlijent.getId());
+		updateKlijent.setPolise(klijent.getPolise());
+		return this.createKlijent(updateKlijent);
 	}
 
 	@Override

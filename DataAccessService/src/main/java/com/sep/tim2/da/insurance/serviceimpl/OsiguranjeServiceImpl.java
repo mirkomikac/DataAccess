@@ -59,8 +59,10 @@ public class OsiguranjeServiceImpl implements OsiguranjeService{
 	}
 
 	@Override
-	public Osiguranje updateOsiguranje(Osiguranje osiguranje, Long polisaId, Long tipOsiguranjaId) {
-		return this.createOsiguranje(osiguranje, polisaId, tipOsiguranjaId);
+	public Osiguranje updateOsiguranje(Osiguranje updateOsiguranje, Long polisaId, Long tipOsiguranjaId) {
+		Osiguranje osiguranje = osiguranjeRepository.findOne(updateOsiguranje.getId());
+		updateOsiguranje.setVrednostiAtributaOsiguranja(osiguranje.getVrednostiAtributaOsiguranja());
+		return this.createOsiguranje(updateOsiguranje, polisaId, tipOsiguranjaId);
 	}
 
 	@Override

@@ -35,8 +35,11 @@ public class OsiguravajucaKucaServiceImpl implements OsiguravajucaKucaService{
 	}
 
 	@Override
-	public OsiguravajucaKuca updateOsiguravajucaKuca(OsiguravajucaKuca osiguravajucaKuca) {
-		return osiguravajucaKucaRepository.save(osiguravajucaKuca);
+	public OsiguravajucaKuca updateOsiguravajucaKuca(OsiguravajucaKuca updateOsiguravajucaKuca) {
+		OsiguravajucaKuca osiguravajucaKuca = osiguravajucaKucaRepository.findOne(updateOsiguravajucaKuca.getId());
+		updateOsiguravajucaKuca.setTipoviOsiguranja(osiguravajucaKuca.getTipoviOsiguranja());
+		updateOsiguravajucaKuca.setListaCenovnika(osiguravajucaKuca.getListaCenovnika());
+		return osiguravajucaKucaRepository.save(updateOsiguravajucaKuca);
 	}
 
 	@Override

@@ -27,8 +27,8 @@ public class PolisaServiceImpl implements PolisaService{
 	
 	@Override
 	public Polisa createPolisa(Polisa polisa, Long klijentId) {
-		//Klijent klijent = klijentService.getKlijent(klijentId);
-		//polisa.setKlijent(klijent);
+		Klijent klijent = klijentService.getKlijent(klijentId);
+		polisa.setKlijent(klijent);
 		return polisaRepository.save(polisa);
 	}
 
@@ -51,8 +51,10 @@ public class PolisaServiceImpl implements PolisaService{
 	}
 
 	@Override
-	public Polisa updatePolisa(Polisa polisa, Long klijentId) {
-		return this.createPolisa(polisa, klijentId);
+	public Polisa updatePolisa(Polisa updatePolisa, Long klijentId) {
+		Polisa polisa = polisaRepository.findOne(updatePolisa.getId());
+		updatePolisa.setOsiguranja(polisa.getOsiguranja());
+		return this.createPolisa(updatePolisa, klijentId);
 	}
 
 	@Override

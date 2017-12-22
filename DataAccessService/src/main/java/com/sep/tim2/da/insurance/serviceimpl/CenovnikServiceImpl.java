@@ -37,12 +37,15 @@ public class CenovnikServiceImpl implements CenovnikService{
 	}
 
 	@Override
-	public Cenovnik updateCenovnik(Cenovnik cenovnik) {
-		return cenovnikRepository.save(cenovnik);
+	public Cenovnik updateCenovnik(Cenovnik updateCenovnik) {
+		Cenovnik cenovnik = cenovnikRepository.findOne(updateCenovnik.getId());
+		updateCenovnik.setStavkeCenovnika(cenovnik.getStavkeCenovnika());
+		return cenovnikRepository.save(updateCenovnik);
 	}
 
 	@Override
 	public void deleteCenovnik(Long id) {
 		cenovnikRepository.delete(id);
 	}
+	
 }

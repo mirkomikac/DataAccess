@@ -49,8 +49,10 @@ public class PredefinisanaVrednostServiceImpl implements PredefinisanaVrednostSe
 	}
 
 	@Override
-	public PredefinisanaVrednost updatePredefinisanaVrednost(PredefinisanaVrednost predefinisanaVrednost, Long tipAtributaId) {
-		return this.createPredefinisanaVrednost(predefinisanaVrednost, tipAtributaId);
+	public PredefinisanaVrednost updatePredefinisanaVrednost(PredefinisanaVrednost updatePredefinisanaVrednost, Long tipAtributaId) {
+		PredefinisanaVrednost predefinisanaVrednost = predefinisanaVrednostRepository.findOne(updatePredefinisanaVrednost.getId());
+		updatePredefinisanaVrednost.setStavkeCenovnika(predefinisanaVrednost.getStavkeCenovnika());
+		return this.createPredefinisanaVrednost(updatePredefinisanaVrednost, tipAtributaId);
 	}
 
 	@Override

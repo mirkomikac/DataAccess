@@ -35,8 +35,10 @@ public class KontekstAtributaServiceImpl implements KontekstAtributaService{
 	}
 
 	@Override
-	public KontekstAtributa updateKontekstAtributa(KontekstAtributa kontekstAtributa) {
-		return kontekstAtributaRepository.save(kontekstAtributa);
+	public KontekstAtributa updateKontekstAtributa(KontekstAtributa updateKontekstAtributa) {
+		KontekstAtributa kontekstAtributa = kontekstAtributaRepository.findOne(updateKontekstAtributa.getId());
+		updateKontekstAtributa.setTipoviAtributa(kontekstAtributa.getTipoviAtributa());
+		return kontekstAtributaRepository.save(updateKontekstAtributa);
 	}
 
 	@Override
