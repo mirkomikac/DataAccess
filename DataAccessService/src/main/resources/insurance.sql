@@ -1,5 +1,6 @@
 --OSIGURAVAJUCE KUCE
 insert into osiguravajucakuca(id, adresa, mesto, naziv, pib, telefon) values (1, 'Nikole Pasica 26', 'Novi Sad', 'Uniqa', '54379126', '021/2100-260');
+insert into osiguravajucakuca(id, adresa, mesto, naziv, pib, telefon) values (2, 'Ljubomira Davidovica 30', 'Novi Sad', 'Grawe', '89779126', '021/2100-300');
 
 --PODRZANI TIPOVI OSIGURANJA
 insert into tiposiguranja(id, naziv, osiguravajucaKuca_id) values(1, 'Medjunarodno putno osiguranje', 1);
