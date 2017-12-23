@@ -3,15 +3,15 @@ insert into osiguravajucakuca(id, adresa, mesto, naziv, pib, telefon) values (1,
 insert into osiguravajucakuca(id, adresa, mesto, naziv, pib, telefon) values (2, 'Ljubomira Davidovica 30', 'Novi Sad', 'Grawe', '89779126', '021/2100-300');
 
 --PODRZANI TIPOVI OSIGURANJA
-insert into tiposiguranja(id, naziv, osiguravajucaKuca_id) values(1, 'Medjunarodno putno osiguranje', 1);
-insert into tiposiguranja(id, naziv, osiguravajucaKuca_id) values(2, 'Osiguranje nepokretnosti', 1);
-insert into tiposiguranja(id, naziv, osiguravajucaKuca_id) values(3, 'Osiguranje pomoci na putu', 1);
+insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(1, 2, 'Medjunarodno putno osiguranje', 1);
+insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(2, 2, 'Osiguranje nepokretnosti', 1);
+insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(3, 2, 'Osiguranje pomoci na putu', 1);
 
 --KONTEKST ATRIBURA
-insert into kontekstatributa(id, naziv) values(1, 'Korisnik');
-insert into kontekstatributa(id, naziv) values(2, 'Nepokretnost');
-insert into kontekstatributa(id, naziv) values(3, 'Osiguranje');
-insert into kontekstatributa(id, naziv) values(4, 'Vozilo');
+insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(1, 'Korisnik', 2, true);
+insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(2, 'Nepokretnost', 2, false);
+insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(3, 'Osiguranje', 1, false);
+insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(4, 'Vozilo', 2, false);
 
 --ATRIBUTI PODRZANIH OSIGURANJA
 insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(1, 'NUMBER', 'Trajanje osiguranja', true, 3);

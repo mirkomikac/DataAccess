@@ -33,10 +33,16 @@ public class TipAtributaController {
 		return tipAtributaService.getTipoviAtributa();
 	}
 	
-	@GetMapping("zakontekts/{kontektsId}")
+	@GetMapping("/zakontekts/{kontektsId}")
 	@ResponseBody
 	public Collection<TipAtributa> getTipoviAtributaZaKontekts(@PathVariable("kontektsId")Long kontektsId) {
 		return tipAtributaService.getTipoviAtributaZaKontekts(kontektsId);
+	}
+	
+	@GetMapping("/zaTipOsiguranja/{tipOsiguranjaId}")
+	@ResponseBody
+	public Collection<TipAtributa> getTipoviAtributaZaTipOsiguranja(@PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
+		return tipAtributaService.getTipoviAtributaZaTiposiguranja(tipOsiguranjaId);
 	}
 	
 	@GetMapping("/{tipAtributaId}")

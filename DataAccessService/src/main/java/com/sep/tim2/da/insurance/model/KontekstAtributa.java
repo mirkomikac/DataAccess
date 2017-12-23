@@ -28,6 +28,12 @@ public class KontekstAtributa implements Serializable{
 	@Column(nullable = false)
 	private String naziv;
 	
+	@Column(nullable = false)
+	private Boolean visestrukoDodavanje;
+	
+	@Column(nullable = false)
+	private short redniBrojForme;
+	
 	@OneToMany(mappedBy = "kontekst", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TipAtributa> tipoviAtributa;
 	
@@ -50,6 +56,22 @@ public class KontekstAtributa implements Serializable{
 		this.naziv = naziv;
 	}
 	
+	public Boolean getVisestrukoDodavanje() {
+		return visestrukoDodavanje;
+	}
+
+	public void setVisestrukoDodavanje(Boolean visestrukoDodavanje) {
+		this.visestrukoDodavanje = visestrukoDodavanje;
+	}
+
+	public short getRedniBrojForme() {
+		return redniBrojForme;
+	}
+
+	public void setRedniBrojForme(short redniBrojForme) {
+		this.redniBrojForme = redniBrojForme;
+	}
+
 	@JsonIgnore
 	public List<TipAtributa> getTipoviAtributa() {
 		if(tipoviAtributa == null) {

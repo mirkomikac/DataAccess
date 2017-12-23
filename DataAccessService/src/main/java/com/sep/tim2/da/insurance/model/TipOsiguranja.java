@@ -22,8 +22,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TipOsiguranja implements Serializable{
 
 	private static final long serialVersionUID = -2182384755331442068L;
-
-	public TipOsiguranja() {}
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -31,6 +29,9 @@ public class TipOsiguranja implements Serializable{
 	
 	@Column(nullable = false)
 	private String naziv;
+	
+	@Column(nullable = false)
+	private short brojFormi;
 	
 	@ManyToOne(optional = false)
 	private OsiguravajucaKuca osiguravajucaKuca;
@@ -41,21 +42,36 @@ public class TipOsiguranja implements Serializable{
 	@ManyToMany(targetEntity=com.sep.tim2.da.insurance.model.TipAtributa.class, mappedBy="tipoviOsiguranja")
 	private List<TipAtributa> tipoviAtributa;
 	
+	public TipOsiguranja() {}
+	
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getNaziv() {
 		return naziv;
 	}
+	
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
+	
+	public short getBrojFormi() {
+		return brojFormi;
+	}
+
+	public void setBrojFormi(short brojFormi) {
+		this.brojFormi = brojFormi;
+	}
+
 	public OsiguravajucaKuca getOsiguravajucaKuca() {
 		return osiguravajucaKuca;
 	}
+	
 	public void setOsiguravajucaKuca(OsiguravajucaKuca osiguravajucaKuca) {
 		this.osiguravajucaKuca = osiguravajucaKuca;
 	}
@@ -86,4 +102,5 @@ public class TipOsiguranja implements Serializable{
 	public void setTipoviAtributa(List<TipAtributa> tipoviAtributa) {
 		this.tipoviAtributa = tipoviAtributa;
 	}	
+	
 }

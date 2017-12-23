@@ -12,4 +12,6 @@ public interface TipAtributaRepository extends JpaRepository<TipAtributa, Long> 
 
 	Collection<TipAtributa> findTipAtributasByKontekstId(Long kontekstId);
 	
+	Collection<TipAtributa> findTipAtributasByTipoviOsiguranjaId(Long tipOsiguranjaId);
+	
 }

@@ -34,6 +34,11 @@ public class TipAtributaServiceImpl implements TipAtributaService{
 	public Collection<TipAtributa> getTipoviAtributaZaKontekts(Long kontektsId) {
 		return tipAtributaRepository.findTipAtributasByKontekstId(kontektsId);
 	}
+	
+	@Override
+	public Collection<TipAtributa> getTipoviAtributaZaTiposiguranja(Long tipOsiguranjaId) {
+		return tipAtributaRepository.findTipAtributasByTipoviOsiguranjaId(tipOsiguranjaId);
+	}
 
 	@Override
 	public TipAtributa getTipAtributa(Long id) {
