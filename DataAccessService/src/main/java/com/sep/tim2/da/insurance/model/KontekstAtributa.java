@@ -34,6 +34,9 @@ public class KontekstAtributa implements Serializable{
 	@Column(nullable = false)
 	private short redniBrojForme;
 	
+	@Column(nullable = false)
+	private Boolean predstavljaGrupu;
+	
 	@OneToMany(mappedBy = "kontekst", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TipAtributa> tipoviAtributa;
 	
@@ -70,6 +73,14 @@ public class KontekstAtributa implements Serializable{
 
 	public void setRedniBrojForme(short redniBrojForme) {
 		this.redniBrojForme = redniBrojForme;
+	}
+
+	public Boolean getPredstavljaGrupu() {
+		return predstavljaGrupu;
+	}
+
+	public void setPredstavljaGrupu(Boolean predstavljaGrupu) {
+		this.predstavljaGrupu = predstavljaGrupu;
 	}
 
 	@JsonIgnore

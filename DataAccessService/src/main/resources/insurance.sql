@@ -8,52 +8,57 @@ insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(2, 
 insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(3, 2, 'Osiguranje pomoci na putu', 1);
 
 --KONTEKST ATRIBURA
-insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(1, 'Korisnik', 2, true);
-insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(2, 'Nepokretnost', 2, false);
-insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(3, 'Osiguranje', 1, false);
-insert into kontekstatributa(id, naziv, redniBrojForme, visestrukoDodavanje) values(4, 'Vozilo', 2, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(1, 'Korisnik', false, 4, true);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(2, 'Nepokretnost', false, 4, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(3, 'Pocetak i trajanje osiguranja', false, 1, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(4, 'Vozilo', false, 3, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(5, 'Broj osoba i svrha putovanja', false, 3, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(6, 'Starost osoba i destinacija', false, 2, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(7, 'Povrsina i starost nepokretnosti', false, 2, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(8, 'Procenjena vrednost i svrha osiguranja', false, 3, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(9, 'Paket koji se zeli kupiti', true, 2, false);
 
 --ATRIBUTI PODRZANIH OSIGURANJA
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(1, 'NUMBER', 'Trajanje osiguranja', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(34, 'DATE', 'Datum pocetka', true, 3);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(1, 'DATE', 'Datum pocetka', true, 3);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(2, 'NUMBER', 'Trajanje osiguranja', true, 3);
 
 --ATRIBUTI MEDJUNARODNOG PUTNOG OSIGURANJA
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(2, 'TEXT', 'Region u koji se putuje', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(3, 'NUMBER', 'Broj osoba', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(4, 'TEXT', 'Starost osoba', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(5, 'TEXT', 'Kojim sportom se korisnik bavi', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(6, 'TEXT', 'Do kog iznosa je korisnik osiguran', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(7, 'TEXT', 'Ime', true, 1);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(8, 'TEXT', 'Prezime', true, 1);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(9, 'NUMBER', 'JMBG', true, 1);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(10, 'NUMBER', 'Broj pasosa', true, 1);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(11, 'TEXT', 'Adresa', true, 1);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(12, 'TEXT', 'Broj telefona', true, 1);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(13, 'EMAIL', 'Email', false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(3, 'TEXT', 'Region u koji se putuje', true, 6);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(4, 'NUMBER', 'Broj osoba', true, 5);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(5, 'TEXT', 'Starost osoba', true, 6);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(6, 'TEXT', 'Kojim sportom se korisnik bavi', true, 5);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(7, 'TEXT', 'Do kog iznosa je korisnik osiguran', true, 6);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(8, 'TEXT', 'Ime', true, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(9, 'TEXT', 'Prezime', true, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(10, 'NUMBER', 'JMBG', true, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(11, 'NUMBER', 'Broj pasosa', true, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(12, 'TEXT', 'Adresa', true, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(13, 'TEXT', 'Broj telefona', true, 1);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(14, 'EMAIL', 'Email', false, 1);
 
 --ATRIBUTI OSIGURANJA NEPOKRETNOSTI
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(14, 'TEXT', 'Povrsina nepokretnosti', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(15, 'TEXT', 'Starost nepokretnosti', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(16, 'TEXT', 'Procenjena vrednost nepokretnosti', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(17, 'TEXT', 'Od cega se osigurava', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(18, 'TEXT', 'Adresa nepokretnosti', true, 2);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(19, 'TEXT', 'Ime vlasnika', true, 2);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(20, 'TEXT', 'Prezime vlasnika', true, 2);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(21, 'TEXT', 'JMBG vlasnika', true, 2);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(15, 'NUMBER', 'Povrsina nepokretnosti', true, 7);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(16, 'NUMBER', 'Starost nepokretnosti', true, 7);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(17, 'NUMBER', 'Procenjena vrednost nepokretnosti', true, 8);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(18, 'TEXT', 'Od cega se osigurava', true, 8);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(19, 'TEXT', 'Adresa nepokretnosti', true, 2);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(20, 'TEXT', 'Ime vlasnika', true, 2);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(21, 'TEXT', 'Prezime vlasnika', true, 2);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(22, 'TEXT', 'JMBG vlasnika', true, 2);
 
 --ATRIBUTI OSIGURANJA POMOCI NA PUTU
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(22, 'TEXT', 'Slepovanje do odredjenje kilometraze', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(23, 'TEXT', 'Popravka do odredjenje cene', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(24, 'TEXT', 'Smestaj u hotelu do odredjenjenog broja dana', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(25, 'TEXT', 'Alternativni prevoz', true, 3);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(26, 'TEXT', 'Marka vozila', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(27, 'TEXT', 'Tip vozila', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(28, 'NUMBER', 'Godina proizvodnje', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(29, 'TEXT', 'Broj registarske oznake', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(30, 'TEXT', 'Broj sasije', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(31, 'TEXT', 'Ime vlasnika', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(32, 'TEXT', 'Prezime vlasnika', true, 4);
-insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(33, 'TEXT', 'JMBG vlasnika', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(23, 'TEXT', 'Slepovanje do odredjenje kilometraze', true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(24, 'TEXT', 'Popravka do odredjenje cene', true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(25, 'TEXT', 'Smestaj u hotelu do odredjenjenog broja dana', true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(26, 'TEXT', 'Alternativni prevoz', true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(27, 'TEXT', 'Marka vozila', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(28, 'TEXT', 'Tip vozila', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(29, 'NUMBER', 'Godina proizvodnje', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(30, 'TEXT', 'Broj registarske oznake', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(31, 'TEXT', 'Broj sasije', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(32, 'TEXT', 'Ime vlasnika', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(33, 'TEXT', 'Prezime vlasnika', true, 4);
+insert into tipatributa(id, domen, naziv, obavezan, kontekst_id) values(34, 'TEXT', 'JMBG vlasnika', true, 4);
 
 --MEDJUNARODNO PUTNO OSIGURANJE POSEDUJE SLEDECE ATRIBUTE
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(1, 1);
@@ -69,11 +74,11 @@ insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) va
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(11, 1);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(12, 1);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(13, 1);
-insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(34, 1);
+insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(14, 1);
 
 --OSIGURANJE NEPOKRETNOSTI POSEDUJE SLEDECE ATRIBUTE
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(1, 2);
-insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(14, 2);
+insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(2, 2);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(15, 2);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(16, 2);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(17, 2);
@@ -81,11 +86,11 @@ insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) va
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(19, 2);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(20, 2);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(21, 2);
-insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(34, 2);
+insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(22, 2);
 
 --OSIGURANJE POMOCI NA PUTU POSEDUJE SLEDECE ATRIBUTE
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(1, 3);
-insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(22, 3);
+insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(2, 3);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(23, 3);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(24, 3);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(25, 3);
@@ -100,50 +105,54 @@ insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) va
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(34, 3);
 
 --PREDEFINISANE VREDNOSTI ZA MEDJUNARODNO PUTNO OSIGURANJE
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(1, 'Evropa', 2);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(2, 'Azija', 2);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(3, 'Severna Amerika', 2);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(4, 'Juzna Amerika', 2);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(5, 'Afrika', 2);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(6, 'Australija', 2);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(7, 'Do 18 godina', 4);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(8, 'Od 18 do 60 godina', 4);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(9, 'Preko 60 godina', 4);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(10, 'Ne bavi se sportom', 5);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(11, 'Fudbal', 5);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(12, 'Kosarka', 5);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(13, 'Boks', 5);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(14, 'Automobilizam', 5);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(15, '10.000 EUR', 6);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(16, '30.000 EUR', 6);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(1, 'Evropa', 3);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(2, 'Azija', 3);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(3, 'Severna Amerika', 3);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(4, 'Juzna Amerika', 3);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(5, 'Afrika', 3);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(6, 'Australija', 3);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(7, 'Do 18 godina', 5);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(8, 'Od 18 do 60 godina', 5);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(9, 'Preko 60 godina', 5);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(10, 'Ne bavi se sportom', 6);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(11, 'Fudbal', 6);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(12, 'Kosarka', 6);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(13, 'Boks', 6);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(14, 'Automobilizam', 6);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(15, '10.000 EUR', 7);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(16, '30.000 EUR', 7);
 
 --PREDEFINISANE VREDNOSTI ZA OSIGURANJE NEPOKRETNOSTI
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(17, 'Manje od 30 kvadratnih metara', 14);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(18, 'Od 30 do 80 kvadratnih metara', 14);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(19, 'Preko 80 kvadratnih metara', 14);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(20, 'Manje od 10 godina', 15);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(21, 'Od 10 do 20 godina', 15);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(22, 'Vise od 20 godina', 15);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(23, 'Manje od 50.000 EUR', 16);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(24, 'Od 50.000 do 100.000 EUR', 16);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(25, 'Vise od 100.000 EUR', 16);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(26, 'Poplava', 17);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(27, 'Kradja', 17);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(28, 'Pozar', 17);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(17, 'Manje od 30 kvadratnih metara', 15);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(18, 'Od 30 do 80 kvadratnih metara', 15);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(19, 'Preko 80 kvadratnih metara', 15);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(20, 'Manje od 10 godina', 16);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(21, 'Od 10 do 20 godina', 16);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(22, 'Vise od 20 godina', 16);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(23, 'Manje od 50.000 EUR', 17);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(24, 'Od 50.000 do 100.000 EUR', 17);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(25, 'Vise od 100.000 EUR', 17);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(26, 'Poplava', 18);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(27, 'Kradja', 18);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(28, 'Pozar', 18);
 
 --PREDEFINISANE VREDNOSTI ZA OSIGURANJE POMOCI NA PUTU
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(29, 'Do 100 km', 22);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(30, 'Od 100 do 300 km', 22);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(31, 'Preko 300 km', 22);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(32, 'Do 500 EUR', 23);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(33, 'Od 500 do 1500 EUR', 23);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(34, 'Preko 1500 EUR', 23);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(35, 'Do 3 dana', 24);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(36, 'Od 3 do 7 dana', 24);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(37, 'Preko 7 dana', 24);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(38, 'Avion', 25);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(39, 'Voz', 25);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(40, 'Autobus', 25);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(29, 'Nema', 23);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(30, 'Do 100 km', 23);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(31, 'Od 100 do 300 km', 23);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(32, 'Preko 300 km', 23);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(33, 'Nema', 24);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(34, 'Do 500 EUR', 24);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(35, 'Od 500 do 1500 EUR', 24);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(36, 'Preko 1500 EUR', 24);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(37, 'Nema', 25);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(38, 'Do 3 dana', 25);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(39, 'Od 3 do 7 dana', 25);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(40, 'Preko 7 dana', 25);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(41, 'Nema', 26);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(42, 'Avion', 26);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(43, 'Voz', 26);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(44, 'Autobus', 26);
 
 --CENOVNICI
 insert into cenovnik(id, datumDo, datumOd, osiguravajucaKuca_id) values(1, '2017-06-1 00:00:00', '2017-12-31 00:00:00', 1);
