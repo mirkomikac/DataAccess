@@ -33,7 +33,7 @@ public class TipAtributaController {
 		return tipAtributaService.getTipoviAtributa();
 	}
 	
-	@GetMapping("/zakontekts/{kontektsId}")
+	@GetMapping("/zaKontekst/{kontektsId}")
 	@ResponseBody
 	public Collection<TipAtributa> getTipoviAtributaZaKontekts(@PathVariable("kontektsId")Long kontektsId) {
 		return tipAtributaService.getTipoviAtributaZaKontekts(kontektsId);
