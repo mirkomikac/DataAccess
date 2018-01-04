@@ -39,6 +39,12 @@ public class KontekstAtributaController {
 		return kontekstAtributaService.getKontekstAtributa(kontekstAtributaId);
 	}
 	
+	@GetMapping("/zaTipOsiguranja/{tipOsiguranjaId}")
+	@ResponseBody
+	public Collection<KontekstAtributa> getKontekstAtributaZaTipOsiguranja(@PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
+		return kontekstAtributaService.getKontektstiAtributaZaTipOsiguranja(tipOsiguranjaId);
+	}
+	
 	@PostMapping
 	@ResponseBody
 	public KontekstAtributa createKontekstAtributa(@RequestBody KontekstAtributa kontekstAtributa) {

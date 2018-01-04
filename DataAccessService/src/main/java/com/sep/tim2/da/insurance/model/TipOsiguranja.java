@@ -36,11 +36,14 @@ public class TipOsiguranja implements Serializable{
 	@ManyToOne(optional = false)
 	private OsiguravajucaKuca osiguravajucaKuca;
 	
-	@OneToMany(mappedBy="tipOsiguranja", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "tipOsiguranja", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Osiguranje> osiguranja;
 	
-	@ManyToMany(targetEntity=com.sep.tim2.da.insurance.model.TipAtributa.class, mappedBy="tipoviOsiguranja")
+	@ManyToMany(targetEntity = com.sep.tim2.da.insurance.model.TipAtributa.class, mappedBy = "tipoviOsiguranja")
 	private List<TipAtributa> tipoviAtributa;
+	
+	@ManyToMany(targetEntity = com.sep.tim2.da.insurance.model.KontekstAtributa.class)
+	private List<KontekstAtributa> konteksti;
 	
 	public TipOsiguranja() {}
 	
@@ -101,6 +104,16 @@ public class TipOsiguranja implements Serializable{
 	@JsonProperty
 	public void setTipoviAtributa(List<TipAtributa> tipoviAtributa) {
 		this.tipoviAtributa = tipoviAtributa;
+	}
+
+	@JsonIgnore
+	public List<KontekstAtributa> getKonteksti() {
+		return konteksti;
+	}
+
+	@JsonProperty
+	public void setKonteksti(List<KontekstAtributa> konteksti) {
+		this.konteksti = konteksti;
 	}	
 	
 }

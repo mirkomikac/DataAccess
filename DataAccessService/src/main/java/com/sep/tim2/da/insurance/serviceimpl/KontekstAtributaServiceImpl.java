@@ -28,6 +28,11 @@ public class KontekstAtributaServiceImpl implements KontekstAtributaService{
 	public KontekstAtributa getKontekstAtributa(Long id) {
 		return kontekstAtributaRepository.findOne(id);
 	}
+	
+	@Override
+	public Collection<KontekstAtributa> getKontektstiAtributaZaTipOsiguranja(Long tipOsiguranjaId) {
+		return kontekstAtributaRepository.findKontekstAtributasByTipoviOsiguranjaIdOrderByRedniBrojForme(tipOsiguranjaId);
+	}
 
 	@Override
 	public KontekstAtributa createKontekstAtributa(KontekstAtributa kontekstAtributa) {
@@ -45,4 +50,5 @@ public class KontekstAtributaServiceImpl implements KontekstAtributaService{
 	public void deleteKontekstAtributa(Long id) {
 		kontekstAtributaRepository.delete(id);
 	}
+
 }

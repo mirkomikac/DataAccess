@@ -47,14 +47,14 @@ public class TipAtributa implements Serializable{
 	@ManyToOne(optional = false)
 	private KontekstAtributa kontekst;
 	
-	@OneToMany(mappedBy="tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<PredefinisanaVrednost> predefinisaneVrednosti;
+	@OneToMany(mappedBy = "tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PredefinisanaVrednost> predefinisaneVrednosti = new ArrayList<>();
 	
-	@OneToMany(mappedBy="tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<VrednostAtributaOsiguranja> vrednostiAtributa;
+	@OneToMany(mappedBy = "tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<VrednostAtributaOsiguranja> vrednostiAtributa = new ArrayList<>();
 	
-	@ManyToMany(targetEntity=com.sep.tim2.da.insurance.model.TipOsiguranja.class)
-	private List<TipOsiguranja> tipoviOsiguranja;
+	@ManyToMany(targetEntity = com.sep.tim2.da.insurance.model.TipOsiguranja.class)
+	private List<TipOsiguranja> tipoviOsiguranja = new ArrayList<>();
 	
 	public TipAtributa() {
 	}
@@ -117,9 +117,6 @@ public class TipAtributa implements Serializable{
 	
 	@JsonIgnore
 	public List<PredefinisanaVrednost> getPredefinisaneVrednosti() {
-		if(predefinisaneVrednosti == null) {
-			predefinisaneVrednosti = new ArrayList<>();
-		}
 		return predefinisaneVrednosti;
 	}
 
@@ -130,9 +127,6 @@ public class TipAtributa implements Serializable{
 	
 	@JsonIgnore
 	public List<VrednostAtributaOsiguranja> getVrednostiAtributa() {
-		if(vrednostiAtributa == null) {
-			vrednostiAtributa = new ArrayList<>();
-		}
 		return vrednostiAtributa;
 	}
 	
@@ -143,9 +137,6 @@ public class TipAtributa implements Serializable{
 	
 	@JsonIgnore
 	public List<TipOsiguranja> getTipoviOsiguranja() {
-		if(tipoviOsiguranja == null) {
-			tipoviOsiguranja = new ArrayList<>();
-		}
 		return tipoviOsiguranja;
 	}
 

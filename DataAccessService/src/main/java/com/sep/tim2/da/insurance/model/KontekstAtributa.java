@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,7 +39,10 @@ public class KontekstAtributa implements Serializable{
 	private Boolean predstavljaGrupu;
 	
 	@OneToMany(mappedBy = "kontekst", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<TipAtributa> tipoviAtributa;
+	private List<TipAtributa> tipoviAtributa = new ArrayList<>();
+	
+	@ManyToMany(targetEntity = com.sep.tim2.da.insurance.model.TipOsiguranja.class, mappedBy = "konteksti")
+	private List<TipOsiguranja> tipoviOsiguranja = new ArrayList<>();
 	
 	public KontekstAtributa() {
 	}
@@ -85,15 +89,22 @@ public class KontekstAtributa implements Serializable{
 
 	@JsonIgnore
 	public List<TipAtributa> getTipoviAtributa() {
-		if(tipoviAtributa == null) {
-			tipoviAtributa = new ArrayList<>();
-		}
 		return tipoviAtributa;
 	}
 	
 	@JsonProperty
 	public void setTipoviAtributa(List<TipAtributa> tipoviAtributa) {
 		this.tipoviAtributa = tipoviAtributa;
+	}
+
+	@JsonIgnore
+	public List<TipOsiguranja> getTipoviOsiguranja() {
+		return tipoviOsiguranja;
+	}
+
+	@JsonProperty
+	public void setTipoviOsiguranja(List<TipOsiguranja> tipoviOsiguranja) {
+		this.tipoviOsiguranja = tipoviOsiguranja;
 	}
 	
 }
