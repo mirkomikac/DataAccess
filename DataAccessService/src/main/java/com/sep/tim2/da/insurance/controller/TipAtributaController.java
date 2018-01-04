@@ -42,7 +42,19 @@ public class TipAtributaController {
 	@GetMapping("/zaTipOsiguranja/{tipOsiguranjaId}")
 	@ResponseBody
 	public Collection<TipAtributa> getTipoviAtributaZaTipOsiguranja(@PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
-		return tipAtributaService.getTipoviAtributaZaTiposiguranja(tipOsiguranjaId);
+		return tipAtributaService.getTipoviAtributaZaTipOsiguranja(tipOsiguranjaId);
+	}
+	
+	@GetMapping("/uticuNaCenu/{tipOsiguranjaId}")
+	@ResponseBody
+	public Collection<TipAtributa> getTipoviAtributaZaTipOsiguranjaAndUticeNaCenu(@PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
+		return tipAtributaService.getTipoviAtributaZaTipOsiguranjaAndUlaziUCenu(tipOsiguranjaId, true);
+	}
+	
+	@GetMapping("/neUticuNaCenu/{tipOsiguranjaId}")
+	@ResponseBody
+	public Collection<TipAtributa> getTipoviAtributaZaTipOsiguranjaAndNeUticeNaCenu(@PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
+		return tipAtributaService.getTipoviAtributaZaTipOsiguranjaAndUlaziUCenu(tipOsiguranjaId, false);
 	}
 	
 	@GetMapping("/{tipAtributaId}")

@@ -40,6 +40,11 @@ public class StavkaCenovnikaServiceImpl implements StavkaCenovnikaService{
 	public StavkaCenovnika getStavkaCenovnika(Long id) {
 		return stavkaCenovnikaRepository.findOne(id);
 	}
+	
+	@Override
+	public StavkaCenovnika getStavkaCenovnikaZaCenovnikAndPredefinisanuVrednost(Long cenovnikId, Long predefinisanaVrednostId) {
+		return stavkaCenovnikaRepository.findStavkaCenovnikaByCenovnikIdAndPredefinisanaVrednostId(cenovnikId, predefinisanaVrednostId);
+	}
 
 	@Override
 	public StavkaCenovnika createStavkaCenovnika(StavkaCenovnika stavkaCenovnika, Long cenovnikId) {

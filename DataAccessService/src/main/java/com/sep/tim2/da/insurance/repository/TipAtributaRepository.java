@@ -14,4 +14,6 @@ public interface TipAtributaRepository extends JpaRepository<TipAtributa, Long> 
 	
 	Collection<TipAtributa> findTipAtributasByTipoviOsiguranjaId(Long tipOsiguranjaId);
 	
+	Collection<TipAtributa> findTipAtributasByTipoviOsiguranjaIdAndUticeNaCenu(Long tipOsiguranjaId, Boolean uticeNaCenu);
+	
 }

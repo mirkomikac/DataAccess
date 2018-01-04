@@ -1,6 +1,7 @@
 package com.sep.tim2.da.insurance.controller;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,16 +40,22 @@ public class CenovnikController {
 		return cenovnikService.getCenovnik(cenovnikId);
 	}
 	
-	@PostMapping
+	@GetMapping("/zaOsiguravajucuKucu/{osiguravajucaKucaId}")
 	@ResponseBody
-	public Cenovnik createCenovnik(@RequestBody Cenovnik cenovnik) {
-		return cenovnikService.createCenovnik(cenovnik);
+	public Cenovnik getCenovnikZaOsiguravajucuKucu(@PathVariable("osiguravajucaKucaId")Long osiguravajucaKucaId) {
+		return cenovnikService.getCenovnikZaOsiguravajucuKucu(osiguravajucaKucaId, new Date());
 	}
 	
-	@PutMapping
+	@PostMapping("/{osiguravajucaKucaId}")
 	@ResponseBody
-	public Cenovnik updateCenovnik(@RequestBody Cenovnik cenovnik) {
-		return cenovnikService.updateCenovnik(cenovnik);
+	public Cenovnik createCenovnik(@RequestBody Cenovnik cenovnik, @PathVariable("osiguravajucaKucaId")Long osiguravajucaKucaId) {
+		return cenovnikService.createCenovnik(cenovnik, osiguravajucaKucaId);
+	}
+	
+	@PutMapping("/{osiguravajucaKucaId}")
+	@ResponseBody
+	public Cenovnik updateCenovnik(@RequestBody Cenovnik cenovnik, @PathVariable("osiguravajucaKucaId")Long osiguravajucaKucaId) {
+		return cenovnikService.updateCenovnik(cenovnik, osiguravajucaKucaId);
 	}
 	
 	@DeleteMapping("/{cenovnikId}")

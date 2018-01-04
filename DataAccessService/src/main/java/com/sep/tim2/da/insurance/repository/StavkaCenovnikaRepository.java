@@ -12,4 +12,6 @@ public interface StavkaCenovnikaRepository extends JpaRepository<StavkaCenovnika
 
 	Collection<StavkaCenovnika> findStavkaCenovnikasByCenovnikId(Long cenovnikId);
 	
+	StavkaCenovnika findStavkaCenovnikaByCenovnikIdAndPredefinisanaVrednostId(Long cenovnikId, Long predefinisanaVrednostId);
+	
 }

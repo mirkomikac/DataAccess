@@ -43,6 +43,12 @@ public class StavkaCenovnikaController {
 		return stavkaCenovnikaService.getStavkaCenovnika(id);
 	}
 	
+	@GetMapping("/{cenovnikId}/{predefinisanaVrednostId}")
+	@ResponseBody
+	public StavkaCenovnika getStavkaCenovnikaZaCenovnikAndPredefinisanuVrednost(@PathVariable("cenovnikId")Long cenovnikId, @PathVariable("predefinisanaVrednostId")Long predefinisanaVrednostId) {
+		return stavkaCenovnikaService.getStavkaCenovnikaZaCenovnikAndPredefinisanuVrednost(cenovnikId, predefinisanaVrednostId);
+	}
+	
 	@PostMapping("/{cenovnikId}")
 	@ResponseBody
 	public StavkaCenovnika createStavkaCenovnika(@RequestBody StavkaCenovnika stavkaCenovnika, @PathVariable("cenovnikId")Long id) {

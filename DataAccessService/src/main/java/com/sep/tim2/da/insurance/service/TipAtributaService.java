@@ -8,7 +8,8 @@ public interface TipAtributaService {
 
 	Collection<TipAtributa> getTipoviAtributa();
 	Collection<TipAtributa> getTipoviAtributaZaKontekts(Long kontektsId);
-	Collection<TipAtributa> getTipoviAtributaZaTiposiguranja(Long tipOsiguranjaId);
+	Collection<TipAtributa> getTipoviAtributaZaTipOsiguranja(Long tipOsiguranjaId);
+	Collection<TipAtributa> getTipoviAtributaZaTipOsiguranjaAndUlaziUCenu(Long tipOsiguranjaId, Boolean uticeNaCenu);
 	TipAtributa getTipAtributa(Long id);
 	TipAtributa createTipAtributa(TipAtributa tipAtributa, Long kontektsAtributaId);
 	TipAtributa updateTipAtributa(TipAtributa tipAtributa, Long kontektsAtributaId);
