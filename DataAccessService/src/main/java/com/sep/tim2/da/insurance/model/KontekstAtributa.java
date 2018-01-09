@@ -41,6 +41,9 @@ public class KontekstAtributa implements Serializable{
 	@OneToMany(mappedBy = "kontekst", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TipAtributa> tipoviAtributa = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "kontekstAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<KontrolniAtribut> kontrolniAtributi = new ArrayList<>();
+	
 	@ManyToMany(targetEntity = com.sep.tim2.da.insurance.model.TipOsiguranja.class, mappedBy = "konteksti")
 	private List<TipOsiguranja> tipoviOsiguranja = new ArrayList<>();
 	
@@ -91,10 +94,20 @@ public class KontekstAtributa implements Serializable{
 	public List<TipAtributa> getTipoviAtributa() {
 		return tipoviAtributa;
 	}
-	
+
 	@JsonProperty
 	public void setTipoviAtributa(List<TipAtributa> tipoviAtributa) {
 		this.tipoviAtributa = tipoviAtributa;
+	}
+
+	@JsonIgnore
+	public List<KontrolniAtribut> getKontrolniAtributi() {
+		return kontrolniAtributi;
+	}
+
+	@JsonProperty
+	public void setKontrolniAtributi(List<KontrolniAtribut> kontrolniAtributi) {
+		this.kontrolniAtributi = kontrolniAtributi;
 	}
 
 	@JsonIgnore

@@ -77,6 +77,9 @@ insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, 
 insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(33, 'TEXT', 'Prezime vlasnika', true, true, false, 4);
 insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(34, 'NUMBER', 'JMBG vlasnika', true, true, false, 4);
 
+--KONTROLNI ATRIBUTI
+insert into kontrolniatribut(id, kontekstAtributa_id, tipAtributa_id) values(1, 1, 4);
+
 --MEDJUNARODNO PUTNO OSIGURANJE POSEDUJE SLEDECE ATRIBUTE
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(1, 1);
 insert into tipatributa_tiposiguranja(tipoviAtributa_id, tipoviOsiguranja_id) values(2, 1);

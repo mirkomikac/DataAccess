@@ -44,8 +44,11 @@ public class TipAtributa implements Serializable{
 	@Column(nullable = false)
 	private Boolean slobodnoPolje;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne
 	private KontekstAtributa kontekst;
+	
+	@OneToMany(mappedBy = "tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<KontrolniAtribut> kontrolniAtributi;
 	
 	@OneToMany(mappedBy = "tipAtributa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PredefinisanaVrednost> predefinisaneVrednosti = new ArrayList<>();
@@ -106,7 +109,7 @@ public class TipAtributa implements Serializable{
 	public void setSlobodnoPolje(Boolean slobodnoPolje) {
 		this.slobodnoPolje = slobodnoPolje;
 	}
-
+	
 	public KontekstAtributa getKontekst() {
 		return kontekst;
 	}
@@ -114,7 +117,17 @@ public class TipAtributa implements Serializable{
 	public void setKontekst(KontekstAtributa kontekst) {
 		this.kontekst = kontekst;
 	}
-	
+
+	@JsonIgnore
+	public List<KontrolniAtribut> getKontrolniAtributi() {
+		return kontrolniAtributi;
+	}
+
+	@JsonProperty
+	public void setKontrolniAtributi(List<KontrolniAtribut> kontrolniAtributi) {
+		this.kontrolniAtributi = kontrolniAtributi;
+	}
+
 	@JsonIgnore
 	public List<PredefinisanaVrednost> getPredefinisaneVrednosti() {
 		return predefinisaneVrednosti;
