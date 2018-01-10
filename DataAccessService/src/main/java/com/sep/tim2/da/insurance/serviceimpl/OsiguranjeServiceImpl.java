@@ -30,6 +30,7 @@ public class OsiguranjeServiceImpl implements OsiguranjeService{
 	public Osiguranje createOsiguranje(Osiguranje osiguranje, Long tipOsiguranjaId) {
 		TipOsiguranja tipOsiguranja = tipOsiguranjaService.getTipOsiguranja(tipOsiguranjaId);
 		osiguranje.setTipOsiguranja(tipOsiguranja);
+		osiguranje.getVrednostiAtributaOsiguranja().stream().forEach(v -> v.setOsiguranje(osiguranje));
 		return osiguranjeRepository.save(osiguranje);
 	}
 
