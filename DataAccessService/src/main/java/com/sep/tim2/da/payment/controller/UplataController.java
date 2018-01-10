@@ -27,10 +27,10 @@ public class UplataController {
 		this.uplataService = uplataService;
 	}
 	
-	@PostMapping("/{polisaId}")
+	@PostMapping("/{osiguranjeId}")
 	@ResponseBody
-	public Uplata createUplata(@RequestBody Uplata uplata, @PathVariable("polisaId")Long polisaId) {
-		return uplataService.createUplata(uplata, polisaId);
+	public Uplata createUplata(@RequestBody Uplata uplata, @PathVariable("osiguranjeId")Long osiguranjeId) {
+		return uplataService.createUplata(uplata, osiguranjeId);
 	}
 	
 	@GetMapping("/{uplataId}")
@@ -39,16 +39,16 @@ public class UplataController {
 		return uplataService.getUplata(uplataId);
 	}
 	
-	@GetMapping("/zapolisu/{polisaId}")
+	@GetMapping("/zapolisu/{osiguranjeId}")
 	@ResponseBody
-	public List<Uplata> getUplate(@PathVariable("polisaId")Long polisaId){
-		return uplataService.getUplateZaPolisu(polisaId);
+	public List<Uplata> getUplate(@PathVariable("osiguranjeId")Long osiguranjeId){
+		return uplataService.getUplateZaOsiguranje(osiguranjeId);
 	}
 	
-	@PutMapping("/{polisaId}")
+	@PutMapping("/{osiguranjeId}")
 	@ResponseBody
-	public Uplata updateUplata(@RequestBody Uplata uplata, @PathVariable("polisaId")Long polisaId) {
-		return uplataService.updateUplata(uplata, polisaId);
+	public Uplata updateUplata(@RequestBody Uplata uplata, @PathVariable("osiguranjeId")Long osiguranjeId) {
+		return uplataService.updateUplata(uplata, osiguranjeId);
 	}
 	
 	@DeleteMapping("/{uplataId}")

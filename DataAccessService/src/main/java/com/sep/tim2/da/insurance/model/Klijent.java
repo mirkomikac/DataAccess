@@ -47,7 +47,7 @@ public class Klijent implements Serializable{
 	private String email;
 	
 	@OneToMany(mappedBy = "klijent", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Polisa> polise;
+	private List<Osiguranje> osiguranja;
 	
 	public Klijent() {
 	}
@@ -117,16 +117,16 @@ public class Klijent implements Serializable{
 	}
 	
 	@JsonIgnore
-	public List<Polisa> getPolise() {
-		if(polise == null) {
-			return new ArrayList<Polisa>();
+	public List<Osiguranje> getOsiguranja() {
+		if(osiguranja == null) {
+			return new ArrayList<Osiguranje>();
 		}
-		return polise;
+		return osiguranja;
 	}
 	
 	@JsonProperty
-	public void setPolise(List<Polisa> polise) {
-		this.polise = polise;
+	public void setOsiguranja(List<Osiguranje> osiguranja) {
+		this.osiguranja = osiguranja;
 	}
 	
 }

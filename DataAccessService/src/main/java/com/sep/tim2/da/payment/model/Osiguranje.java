@@ -2,12 +2,15 @@ package com.sep.tim2.da.payment.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -15,20 +18,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-public class Polisa implements Serializable{
-
-	private static final long serialVersionUID = -6901258118812785721L;
+public class Osiguranje implements Serializable{
 	
+	private static final long serialVersionUID = -7663607432545399871L;
+
 	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column
-	private Double cena;
+	private Date datumSklapanja;
 	
-	@OneToMany(mappedBy = "polisa", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "osiguranje", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Uplata> uplate;
 	
-	public Polisa() {
+	public Osiguranje() {
 	}
 	
 	public Long getId() {
@@ -39,18 +43,18 @@ public class Polisa implements Serializable{
 		this.id = id;
 	}
 	
-	public Double getCena() {
-		return cena;
+	public Date getDatumSklapanja() {
+		return datumSklapanja;
 	}
-	
-	public void setCena(Double cena) {
-		this.cena = cena;
+
+	public void setDatumSklapanja(Date datumSklapanja) {
+		this.datumSklapanja = datumSklapanja;
 	}
-	
+
 	@JsonIgnore
 	public List<Uplata> getUplate() {
 		if(uplate == null) {
-			uplate = new ArrayList<>();
+			return new ArrayList<>();
 		}
 		return uplate;
 	}
@@ -59,4 +63,5 @@ public class Polisa implements Serializable{
 	public void setUplate(List<Uplata> uplate) {
 		this.uplate = uplate;
 	}
+	
 }

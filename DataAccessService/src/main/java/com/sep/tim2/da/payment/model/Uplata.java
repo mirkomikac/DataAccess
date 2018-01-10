@@ -28,7 +28,7 @@ public class Uplata implements Serializable{
 	private Date datumUplate;
 	
 	@ManyToOne
-	private Polisa polisa;
+	private Osiguranje osiguranje;
 	
 	public Uplata() {
 	}
@@ -57,12 +57,12 @@ public class Uplata implements Serializable{
 		this.datumUplate = datumUplate;
 	}
 
-	public Polisa getPolisa() {
-		return polisa;
+	public Osiguranje getOsiguranje() {
+		return osiguranje;
 	}
 
-	public void setPolisa(Polisa polisa) {
-		this.polisa = polisa;
+	public void setOsiguranje(Osiguranje osiguranje) {
+		this.osiguranje = osiguranje;
 	}
 	
 }

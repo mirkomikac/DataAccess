@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sep.tim2.da.payment.model.Polisa;
+import com.sep.tim2.da.payment.model.Osiguranje;
 import com.sep.tim2.da.payment.model.Uplata;
 import com.sep.tim2.da.payment.repository.UplataRepository;
-import com.sep.tim2.da.payment.service.PolisaService;
+import com.sep.tim2.da.payment.service.OsiguranjeService;
 import com.sep.tim2.da.payment.service.UplataService;
 
 @Service
@@ -17,18 +17,18 @@ import com.sep.tim2.da.payment.service.UplataService;
 public class UplataServiceImpl implements UplataService{
 
 	private final UplataRepository uplataRepository;
-	private final PolisaService polisaService;
+	private final OsiguranjeService polisaService;
 	
 	@Autowired
-	public UplataServiceImpl(UplataRepository uplataRepository, PolisaService polisaService) {
+	public UplataServiceImpl(UplataRepository uplataRepository, OsiguranjeService polisaService) {
 		this.uplataRepository = uplataRepository;
 		this.polisaService = polisaService;
 	}
 	
 	@Override
-	public Uplata createUplata(Uplata uplata, Long polisaId) {
-		Polisa polisa = polisaService.getPolisa(polisaId);
-		uplata.setPolisa(polisa);
+	public Uplata createUplata(Uplata uplata, Long osiguranjeId) {
+		Osiguranje osiguranje = polisaService.getOsiguranje(osiguranjeId);
+		uplata.setOsiguranje(osiguranje);
 		return uplataRepository.save(uplata);
 	}
 
@@ -40,13 +40,13 @@ public class UplataServiceImpl implements UplataService{
 
 	@Override
 	@Transactional
-	public List<Uplata> getUplateZaPolisu(Long polisaId) {
-		return uplataRepository.findUplatasByPolisaId(polisaId);
+	public List<Uplata> getUplateZaOsiguranje(Long osiguranjeId) {
+		return uplataRepository.findUplatasByOsiguranjeId(osiguranjeId);
 	}
 
 	@Override
-	public Uplata updateUplata(Uplata uplata, Long polisaId) {
-		return this.createUplata(uplata, polisaId);
+	public Uplata updateUplata(Uplata uplata, Long osiguranjeId) {
+		return this.createUplata(uplata, osiguranjeId);
 	}
 
 	@Override

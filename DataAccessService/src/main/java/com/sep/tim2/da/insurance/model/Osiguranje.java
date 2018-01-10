@@ -2,9 +2,11 @@ package com.sep.tim2.da.insurance.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,11 +27,14 @@ public class Osiguranje implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	private Polisa polisa;
+	@Column
+	private Date datumSklapanja;
 	
 	@ManyToOne
 	private TipOsiguranja tipOsiguranja;
+	
+	@ManyToOne
+	private Klijent klijent;
 	
 	@OneToMany(mappedBy = "osiguranje", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<VrednostAtributaOsiguranja> vrednostiAtributaOsiguranja;
@@ -45,14 +50,14 @@ public class Osiguranje implements Serializable{
 		this.id = id;
 	}
 	
-	public Polisa getPolisa() {
-		return polisa;
+	public Date getDatumSklapanja() {
+		return datumSklapanja;
 	}
-	
-	public void setPolisa(Polisa polisa) {
-		this.polisa = polisa;
+
+	public void setDatumSklapanja(Date datumSklapanja) {
+		this.datumSklapanja = datumSklapanja;
 	}
-	
+
 	public TipOsiguranja getTipOsiguranja() {
 		return tipOsiguranja;
 	}
@@ -61,6 +66,14 @@ public class Osiguranje implements Serializable{
 		this.tipOsiguranja = tipOsiguranja;
 	}
 	
+	public Klijent getKlijent() {
+		return klijent;
+	}
+
+	public void setKlijent(Klijent klijent) {
+		this.klijent = klijent;
+	}
+
 	@JsonIgnore
 	public List<VrednostAtributaOsiguranja> getVrednostiAtributaOsiguranja() {
 		if(vrednostiAtributaOsiguranja == null) {
@@ -73,4 +86,5 @@ public class Osiguranje implements Serializable{
 	public void setVrednostiAtributaOsiguranja(List<VrednostAtributaOsiguranja> vrednostiAtributaOsiguranja) {
 		this.vrednostiAtributaOsiguranja = vrednostiAtributaOsiguranja;
 	}
+	
 }

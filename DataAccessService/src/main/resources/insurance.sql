@@ -226,12 +226,9 @@ insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) val
 --KLIJENTI
 insert into klijent(id, adresa, brojPasosa, brojTelefona, email, ime, jmbg, prezime) values(1, 'Doze Djerdja 7 Novi Sad', '00000007', '0641783647','stefan.varajic@email.com', 'Stefan', '1501389800000', 'Varajic');
 
---POLISE
-insert into polisa(id, cena, datumSklapanja, klijent_id) values(1, 1000, '2017-08-14 00:00:00', 1);
-
 --OSIGURANJA
-insert into osiguranje(id, polisa_id, tipOsiguranja_id) values(1, 1, 1);
-insert into osiguranje(id, polisa_id, tipOsiguranja_id) values(2, 1, 3);
+insert into osiguranje(id, datumSklapanja, klijent_id, tipOsiguranja_id) values(1, '2017-08-14 00:00:00', 1, 1);
+insert into osiguranje(id, datumSklapanja, klijent_id, tipOsiguranja_id) values(2, '2017-08-14 00:00:00', 1, 3);
 
 --VREDNOSTI ZA MEDJUNARODNO PUTNO OSIGURANJE
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(1, '2017-08-15 00:00:00', 1, 34);

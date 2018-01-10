@@ -10,6 +10,6 @@ import com.sep.tim2.da.payment.model.Uplata;
 @Repository
 public interface UplataRepository extends JpaRepository<Uplata, Long>{
 
-	List<Uplata> findUplatasByPolisaId(Long polisaId);
+	List<Uplata> findUplatasByOsiguranjeId(Long osiguranjeId);
 	
 }

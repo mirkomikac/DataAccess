@@ -27,12 +27,11 @@ public class OsiguranjeController {
 		this.osiguranjeService = osiguranjeService;
 	}
 	
-	@PostMapping("/{polisaId}/{tipOsiguranjaId}")
+	@PostMapping("/{tipOsiguranjaId}")
 	@ResponseBody
-	public Osiguranje createOsiguranje(@RequestBody Osiguranje osiguranje, 
-									   @PathVariable("polisaId")Long polisaId,
+	public Osiguranje createOsiguranje(@RequestBody Osiguranje osiguranje,
 									   @PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
-		return osiguranjeService.createOsiguranje(osiguranje, polisaId, tipOsiguranjaId);
+		return osiguranjeService.createOsiguranje(osiguranje, tipOsiguranjaId);
 	}
 	
 	@GetMapping("/{osiguranjeId}")
@@ -47,18 +46,11 @@ public class OsiguranjeController {
 		return osiguranjeService.getOsiguranja();
 	}
 	
-	@GetMapping("/{polisaId}")
+	@PutMapping("/{tipOsiguranjaId}")
 	@ResponseBody
-	public List<Osiguranje> getOsiguranjaZaPolisu(@PathVariable("polisaId")Long polisaId) {
-		return osiguranjeService.getOsiguranjaZaPolisu(polisaId);
-	}
-	
-	@PutMapping("/{polisaId}/{tipOsiguranjaId}")
-	@ResponseBody
-	public Osiguranje updateOsiguranje(@RequestBody Osiguranje osiguranje, 
-									   @PathVariable("polisaId")Long polisaId,
+	public Osiguranje updateOsiguranje(@RequestBody Osiguranje osiguranje,
 									   @PathVariable("tipOsiguranjaId")Long tipOsiguranjaId) {
-		return osiguranjeService.updateOsiguranje(osiguranje, polisaId, tipOsiguranjaId);
+		return osiguranjeService.updateOsiguranje(osiguranje, tipOsiguranjaId);
 	}
 	
 	@DeleteMapping("/{osiguranjeId}")
