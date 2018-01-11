@@ -47,7 +47,7 @@ public class Klijent implements Serializable{
 	private String email;
 	
 	@OneToMany(mappedBy = "klijent", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Osiguranje> osiguranja;
+	private List<Osiguranje> osiguranja = new ArrayList<>();
 	
 	public Klijent() {
 	}

@@ -31,6 +31,12 @@ public class KlijentServiceImpl implements KlijentService {
 	public Klijent getKlijent(Long klijentId) {
 		return klijentRepository.findOne(klijentId);
 	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Klijent getKlijentZaEmail(String email) {
+		return klijentRepository.findKlijentByEmail(email);
+	}
 
 	@Override
 	@Transactional(readOnly = true)

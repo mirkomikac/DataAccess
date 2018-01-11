@@ -44,6 +44,15 @@ public class TipAtributa implements Serializable{
 	@Column(nullable = false)
 	private Boolean slobodnoPolje;
 	
+	@Column
+	private String regex;
+	
+	@Column
+	private Integer minimalnaDuzina;
+	
+	@Column 
+	private Integer maksimalnaDuzina;
+	
 	@ManyToOne
 	private KontekstAtributa kontekst;
 	
@@ -110,6 +119,30 @@ public class TipAtributa implements Serializable{
 		this.slobodnoPolje = slobodnoPolje;
 	}
 	
+	public String getRegex() {
+		return regex;
+	}
+
+	public void setRegex(String regex) {
+		this.regex = regex;
+	}
+
+	public Integer getMinimalnaDuzina() {
+		return minimalnaDuzina;
+	}
+
+	public void setMinimalnaDuzina(Integer minimalnaDuzina) {
+		this.minimalnaDuzina = minimalnaDuzina;
+	}
+
+	public Integer getMaksimalnaDuzina() {
+		return maksimalnaDuzina;
+	}
+
+	public void setMaksimalnaDuzina(Integer maksimalnaDuzina) {
+		this.maksimalnaDuzina = maksimalnaDuzina;
+	}
+
 	public KontekstAtributa getKontekst() {
 		return kontekst;
 	}

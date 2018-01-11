@@ -8,6 +8,7 @@ public interface KlijentService {
 
 	Klijent createKlijent(Klijent klijent);
 	Klijent getKlijent(Long klijentId);
+	Klijent getKlijentZaEmail(String email);
 	List<Klijent> getKlijenti();
 	Klijent updateKlijent(Klijent klijent);
 	void deleteKlijent(Long klijentId);

@@ -41,55 +41,55 @@ insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) va
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (3, 10);
 
 --ATRIBUTI PODRZANIH OSIGURANJA
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(1, 'DATE', 'Datum pocetka', true, true, false, 3);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(2, 'NUMBER', 'Trajanje osiguranja', true, true, true, 3);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(1, 'DATE', null, null, 'Datum pocetka', true, null, true, false, 3);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(2, 'NUMBER', 3, 1, 'Trajanje osiguranja', true, '\\d+', true, true, 3);
 
 --ATRIBUTI MEDJUNARODNOG PUTNOG OSIGURANJA
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(3, 'TEXT', 'Region u koji se putuje', true, false, true, 6);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(4, 'NUMBER', 'Broj osoba', true, true, true, 5);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(5, 'TEXT', 'Starost osoba', true, false, true, 6);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(6, 'TEXT', 'Kojim sportom se korisnik bavi', true, false, true, 5);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(7, 'TEXT', 'Do kog iznosa je korisnik osiguran', true, false, true, 6);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(8, 'TEXT', 'Ime', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(9, 'TEXT', 'Prezime', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(10, 'NUMBER', 'JMBG', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(11, 'NUMBER', 'Broj pasosa', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(12, 'TEXT', 'Adresa', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(13, 'TEXT', 'Broj telefona', true, true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(3, 'TEXT', null, null, 'Region u koji se putuje', true, null, false, true, 6);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(4, 'NUMBER', 30, 1, 'Broj osoba', true, '\\d+', true, true, 5);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(5, 'TEXT', null, null, 'Starost osoba', true, null, false, true, 6);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(6, 'TEXT', null, null, 'Kojim sportom se korisnik bavi', true, null, false, true, 5);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(7, 'TEXT', null, null, 'Do kog iznosa je korisnik osiguran', true, null, false, true, 6);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(8, 'TEXT', 40, 1, 'Ime', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(9, 'TEXT', 40, 1, 'Prezime', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(10, 'TEXT', 13, 13, 'JMBG', true, '\\d+', true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(11, 'TEXT', 25, 1, 'Broj pasosa', true, '\\d+', true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(12, 'TEXT', 80, 1, 'Adresa', true, '^[a-zA-Z]+[a-zA-Z ]+[\\d]+$', true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(13, 'TEXT', 20, 1, 'Broj telefona', true, '\\d+', true, false, 1);
 
 
 --ATRIBUTI OSIGURANJA NEPOKRETNOSTI
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(15, 'NUMBER', 'Povrsina nepokretnosti', true, false, true, 7);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(16, 'NUMBER', 'Starost nepokretnosti', true, false, true, 7);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(17, 'NUMBER', 'Procenjena vrednost nepokretnosti', true, false, true, 8);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(18, 'TEXT', 'Od cega se osigurava', true, false, true, 8);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(19, 'TEXT', 'Adresa nepokretnosti', true, true, false, 2);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(20, 'TEXT', 'Ime vlasnika', true, true, false, 2);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(21, 'TEXT', 'Prezime vlasnika', true, true, false, 2);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(22, 'NUMBER', 'JMBG vlasnika', true, true, false, 2);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(15, 'TEXT', null, null, 'Povrsina nepokretnosti', true, null, false, true, 7);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(16, 'TEXT', null, null, 'Starost nepokretnosti', true, null, false, true, 7);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(17, 'TEXT', null, null, 'Procenjena vrednost nepokretnosti', true, null, false, true, 8);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(18, 'TEXT', null, null, 'Od cega se osigurava', true, null, false, true, 8);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(19, 'TEXT', 80, 1, 'Adresa nepokretnosti', true, '^[a-zA-Z]+[a-zA-Z ]+[\\d]+$', true, false, 2);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(20, 'TEXT', 40, 1, 'Ime vlasnika', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 2);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(21, 'TEXT', 40, 1, 'Prezime vlasnika', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 2);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(22, 'NUMBER', 13, 13, 'JMBG vlasnika', true, '\\d+', true, false, 2);
 
 --ATRIBUTI OSIGURANJA POMOCI NA PUTU
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(23, 'TEXT', 'Slepovanje do odredjenje kilometraze', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(24, 'TEXT', 'Popravka do odredjenje cene', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(25, 'TEXT', 'Smestaj u hotelu do odredjenjenog broja dana', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(26, 'TEXT', 'Alternativni prevoz', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(27, 'TEXT', 'Marka vozila', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(28, 'TEXT', 'Tip vozila', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(29, 'NUMBER', 'Godina proizvodnje', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(30, 'TEXT', 'Broj registarske oznake', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(31, 'TEXT', 'Broj sasije', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(32, 'TEXT', 'Ime vlasnika', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(33, 'TEXT', 'Prezime vlasnika', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(34, 'NUMBER', 'JMBG vlasnika', true, true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(23, 'TEXT', null, null, 'Slepovanje do odredjenje kilometraze', true, null, false, true, 9);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(24, 'TEXT', null, null, 'Popravka do odredjenje cene', true, null, false, true, 9);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(25, 'TEXT', null, null, 'Smestaj u hotelu do odredjenjenog broja dana', true, null, false, true, 9);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(26, 'TEXT', null, null, 'Alternativni prevoz', true, null, false, true, 9);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(27, 'TEXT', 40, 1, 'Marka vozila', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(28, 'TEXT', 40, 1, 'Tip vozila', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(29, 'NUMBER', 4, 4, 'Godina proizvodnje', true, '\\d+', true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(30, 'TEXT', 30, 1, 'Broj registarske oznake', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(31, 'TEXT', 40, 1, 'Broj sasije', true, '^[a-zA-Z]+[a-zA-Z ]+[\\d]+$', true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(32, 'TEXT', 40, 1, 'Ime vlasnika', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(33, 'TEXT', 40, 1, 'Prezime vlasnika', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 4);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(34, 'NUMBER', 13, 13, 'JMBG vlasnika', true, '\\d+', true, false, 4);
 
 --ATRIBUTI
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(35, 'TEXT', 'Ime', true, true, false, 10);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(36, 'TEXT', 'Prezime', true, true, false, 10);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(37, 'NUMBER', 'JMBG', true, true, false, 10);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(38, 'NUMBER', 'Broj pasosa', true, true, false, 10);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(39, 'TEXT', 'Adresa', true, true, false, 10);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(40, 'TEXT', 'Broj telefona', true, true, false, 10);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(14, 'EMAIL', 'Email', true, true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(35, 'TEXT', 40, 1, 'Ime', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(36, 'TEXT', 40, 1, 'Prezime', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(37, 'NUMBER', 13, 13, 'JMBG', true, '\\d+', true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(38, 'NUMBER', 25, 1, 'Broj pasosa', true, '\\d+', true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(39, 'TEXT', 80, 1, 'Adresa', true, '^[a-zA-Z]+[a-zA-Z ]+[\\d]+$', true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(40, 'TEXT', 20, 1, 'Broj telefona', true, '\\d+', true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(14, 'EMAIL', 50, 1, 'Email', true, '^[a-zA-Z\\d]+[@ ][a-z\\d]+\\.[a-z]+$', true, false, 10);
 
 
 --KONTROLNI ATRIBUTI
