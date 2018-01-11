@@ -3,115 +3,94 @@ insert into osiguravajucakuca(id, adresa, mesto, naziv, pib, telefon) values (1,
 insert into osiguravajucakuca(id, adresa, mesto, naziv, pib, telefon) values (2, 'Ljubomira Davidovica 30', 'Novi Sad', 'Grawe', '89779126', '021/2100-300');
 
 --PODRZANI TIPOVI OSIGURANJA
-insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(1, 4, 'Medjunarodno putno osiguranje', 1);
-insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(2, 4, 'Osiguranje nepokretnosti', 1);
-insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(3, 3, 'Osiguranje pomoci na putu', 1);
+insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(1, 5, 'Medjunarodno putno osiguranje', 1);
+insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(2, 5, 'Osiguranje nepokretnosti', 1);
+insert into tiposiguranja(id, brojFormi, naziv, osiguravajucaKuca_id) values(3, 4, 'Osiguranje pomoci na putu', 1);
 
 --KONTEKST ATRIBURA
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(1, 'Korisnik', false, 4, true);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(2, 'Nepokretnost', false, 4, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(3, 'Pocetak i trajanje osiguranja', false, 1, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(4, 'Vozilo', false, 3, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(5, 'Broj osoba i svrha putovanja', false, 3, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(6, 'Starost osoba i destinacija', false, 2, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(7, 'Povrsina i starost nepokretnosti', false, 2, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(8, 'Procenjena vrednost i svrha osiguranja', false, 3, false);
-insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(9, 'Paket koji se zeli kupiti', true, 2, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(1, 'Korisnik', false, 5, true);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(2, 'Nepokretnost', false, 5, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(3, 'Pocetak i trajanje osiguranja', false, 2, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(4, 'Vozilo', false, 4, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(5, 'Broj osoba i svrha putovanja', false, 4, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(6, 'Starost osoba i destinacija', false, 3, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(7, 'Povrsina i starost nepokretnosti', false, 3, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(8, 'Procenjena vrednost i svrha osiguranja', false, 4, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(9, 'Paket koji se zeli kupiti', true, 3, false);
+insert into kontekstatributa(id, naziv, predstavljaGrupu, redniBrojForme, visestrukoDodavanje) values(10, 'Osiguravac', false, 1, false);
 
 --KONTEKSTI ATRIBUTA ZA MEDJUNARODNO PUTNO OSIGURANJE
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (1, 1);
-insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (1, 6);
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (1, 3);
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (1, 5);
+insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (1, 6);
+insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (1, 10);
+
 
 --KONTEKSTI ATRIBUTA ZA OSIGURANJE NEPOKRETNOSTI
+insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (2, 2);
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (2, 3);
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (2, 7);
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (2, 8);
-insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (2, 2);
+insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (2, 10);
 
 --KONTEKSTI ATRIBUTA ZA OSIGURANJE POMOCI NA PUTU
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (3, 3);
-insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (3, 9);
 insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (3, 4);
+insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (3, 9);
+insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) values (3, 10);
 
 --ATRIBUTI PODRZANIH OSIGURANJA
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(1, 'DATE', 'Datum pocetka', true, true, false, 3);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(2, 'NUMBER', 'Trajanje osiguranja', true, true, true, 3);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(1, 'DATE', 'Datum pocetka', true, true, false, 3);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(2, 'NUMBER', 'Trajanje osiguranja', true, true, true, 3);
 
 --ATRIBUTI MEDJUNARODNOG PUTNOG OSIGURANJA
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(3, 'TEXT', 'Region u koji se putuje', true, false, true, 6);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(4, 'NUMBER', 'Broj osoba', true, true, true, 5);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(5, 'TEXT', 'Starost osoba', true, false, true, 6);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(6, 'TEXT', 'Kojim sportom se korisnik bavi', true, false, true, 5);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(7, 'TEXT', 'Do kog iznosa je korisnik osiguran', true, false, true, 6);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(8, 'TEXT', 'Ime', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(9, 'TEXT', 'Prezime', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(10, 'NUMBER', 'JMBG', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(11, 'NUMBER', 'Broj pasosa', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(12, 'TEXT', 'Adresa', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(13, 'TEXT', 'Broj telefona', true, true, false, 1);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(14, 'EMAIL', 'Email', false, true, false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(3, 'TEXT', 'Region u koji se putuje', true, false, true, 6);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(4, 'NUMBER', 'Broj osoba', true, true, true, 5);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(5, 'TEXT', 'Starost osoba', true, false, true, 6);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(6, 'TEXT', 'Kojim sportom se korisnik bavi', true, false, true, 5);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(7, 'TEXT', 'Do kog iznosa je korisnik osiguran', true, false, true, 6);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(8, 'TEXT', 'Ime', true, true, false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(9, 'TEXT', 'Prezime', true, true, false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(10, 'NUMBER', 'JMBG', true, true, false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(11, 'NUMBER', 'Broj pasosa', true, true, false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(12, 'TEXT', 'Adresa', true, true, false, 1);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(13, 'TEXT', 'Broj telefona', true, true, false, 1);
+
 
 --ATRIBUTI OSIGURANJA NEPOKRETNOSTI
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(15, 'NUMBER', 'Povrsina nepokretnosti', true, false, true, 7);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(16, 'NUMBER', 'Starost nepokretnosti', true, false, true, 7);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(17, 'NUMBER', 'Procenjena vrednost nepokretnosti', true, false, true, 8);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(18, 'TEXT', 'Od cega se osigurava', true, false, true, 8);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(19, 'TEXT', 'Adresa nepokretnosti', true, true, false, 2);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(20, 'TEXT', 'Ime vlasnika', true, true, false, 2);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu,) values(21, 'TEXT', 'Prezime vlasnika', true, true, false, 2);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(22, 'NUMBER', 'JMBG vlasnika', true, true, false, 2);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(15, 'NUMBER', 'Povrsina nepokretnosti', true, false, true, 7);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(16, 'NUMBER', 'Starost nepokretnosti', true, false, true, 7);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(17, 'NUMBER', 'Procenjena vrednost nepokretnosti', true, false, true, 8);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(18, 'TEXT', 'Od cega se osigurava', true, false, true, 8);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(19, 'TEXT', 'Adresa nepokretnosti', true, true, false, 2);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(20, 'TEXT', 'Ime vlasnika', true, true, false, 2);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(21, 'TEXT', 'Prezime vlasnika', true, true, false, 2);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(22, 'NUMBER', 'JMBG vlasnika', true, true, false, 2);
 
 --ATRIBUTI OSIGURANJA POMOCI NA PUTU
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(23, 'TEXT', 'Slepovanje do odredjenje kilometraze', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(24, 'TEXT', 'Popravka do odredjenje cene', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(25, 'TEXT', 'Smestaj u hotelu do odredjenjenog broja dana', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(26, 'TEXT', 'Alternativni prevoz', true, false, true, 9);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(27, 'TEXT', 'Marka vozila', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(28, 'TEXT', 'Tip vozila', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu,) values(29, 'NUMBER', 'Godina proizvodnje', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(30, 'TEXT', 'Broj registarske oznake', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(31, 'TEXT', 'Broj sasije', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(32, 'TEXT', 'Ime vlasnika', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(33, 'TEXT', 'Prezime vlasnika', true, true, false, 4);
-insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu) values(34, 'NUMBER', 'JMBG vlasnika', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(23, 'TEXT', 'Slepovanje do odredjenje kilometraze', true, false, true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(24, 'TEXT', 'Popravka do odredjenje cene', true, false, true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(25, 'TEXT', 'Smestaj u hotelu do odredjenjenog broja dana', true, false, true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(26, 'TEXT', 'Alternativni prevoz', true, false, true, 9);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(27, 'TEXT', 'Marka vozila', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(28, 'TEXT', 'Tip vozila', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(29, 'NUMBER', 'Godina proizvodnje', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(30, 'TEXT', 'Broj registarske oznake', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(31, 'TEXT', 'Broj sasije', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(32, 'TEXT', 'Ime vlasnika', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(33, 'TEXT', 'Prezime vlasnika', true, true, false, 4);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(34, 'NUMBER', 'JMBG vlasnika', true, true, false, 4);
 
---ATRIBUTI KONTEKSTA
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(3,1);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(3,2);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(6,3);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(5,4);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(6,5);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(5,6);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(6,7);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,8);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,9);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,10);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,11);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,12);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,13);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(1,14);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(7,15);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(7,16);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(8,17);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(8,18);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(2,19);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(2,20);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(2,21);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(2,22);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(9,23);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(9,24);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(9,25);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(9,26);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,27);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,28);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,29);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,30);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,31);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,32);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,33);
-insert into kontekstatributa_tipatributa(kontekstAtributa_id, tipoviAtributa_id) values(4,34);
+--ATRIBUTI
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(35, 'TEXT', 'Ime', true, true, false, 10);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(36, 'TEXT', 'Prezime', true, true, false, 10);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(37, 'NUMBER', 'JMBG', true, true, false, 10);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(38, 'NUMBER', 'Broj pasosa', true, true, false, 10);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(39, 'TEXT', 'Adresa', true, true, false, 10);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(40, 'TEXT', 'Broj telefona', true, true, false, 10);
+insert into tipatributa(id, domen, naziv, obavezan, slobodnoPolje, uticeNaCenu, kontekst_id) values(14, 'EMAIL', 'Email', true, true, false, 10);
+
 
 --KONTROLNI ATRIBUTI
 insert into kontrolniatribut(id, kontekstAtributa_id, tipAtributa_id) values(1, 1, 4);
