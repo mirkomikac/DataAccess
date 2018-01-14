@@ -30,7 +30,13 @@ public class PredefinisanaVrednostController {
 	@GetMapping
 	@ResponseBody
 	public Collection<PredefinisanaVrednost> getPredefinisaneVrednosti() {
-		return predefinisanaVrednostService.getPredefinisaneVrednoste();
+		return predefinisanaVrednostService.getPredefinisaneVrednosti();
+	}
+	
+	@GetMapping("/zaOsiguravajucuKucu/{osiguravajucaKucaId}")
+	@ResponseBody
+	public Collection<PredefinisanaVrednost> getPredefinisaneVrednostiZaOsiguravajucuKucu(@PathVariable("osiguravajucaKucaId")Long osiguravajucaKucaId) {
+		return predefinisanaVrednostService.getPredefinisaneVrednostiZaOsiguravajucuKucu(osiguravajucaKucaId);
 	}
 	
 	@GetMapping("/zaTipAtributa/{tipAtributaId}")

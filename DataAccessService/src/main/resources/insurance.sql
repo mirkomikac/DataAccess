@@ -174,15 +174,15 @@ insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(
 --PREDEFINISANE VREDNOSTI ZA OSIGURANJE POMOCI NA PUTU
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(29, 'Nema', 23);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(30, 'Do 100 km', 23);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(31, 'Od 100 do 300 km', 23);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(31, 'Do 300 km', 23);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(32, 'Preko 300 km', 23);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(33, 'Nema', 24);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(34, 'Do 500 EUR', 24);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(35, 'Od 500 do 1500 EUR', 24);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(35, 'Do 1500 EUR', 24);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(36, 'Preko 1500 EUR', 24);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(37, 'Nema', 25);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(38, 'Do 3 dana', 25);
-insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(39, 'Od 3 do 7 dana', 25);
+insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(39, 'Do 7 dana', 25);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(40, 'Preko 7 dana', 25);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(41, 'Nema', 26);
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(42, 'Avion', 26);
@@ -190,7 +190,7 @@ insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(
 insert into predefinisanavrednost(id, konkretnaVrednost, tipAtributa_id) values(44, 'Autobus', 26);
 
 --CENOVNICI
-insert into cenovnik(id, datumDo, datumOd, osiguravajucaKuca_id) values(1, '2018-03-07 00:00:00', '2017-06-01 00:00:00', 1);
+insert into cenovnik(id, aktuelan, datumDo, datumOd, osiguravajucaKuca_id) values(1, true, '2018-03-07 00:00:00', '2017-06-01 00:00:00', 1);
 
 --STAVKE CENOVNIKA ZA MEDJUNARNODNO PUTNO OSIGURANJE
 insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(1, 700, 1, 1);
@@ -237,6 +237,10 @@ insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) val
 insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(38, 10000, 1, 38);
 insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(39, 6000, 1, 39);
 insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(40, 5500, 1, 40);
+insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(41, 0, 1, 41);
+insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(42, 6500, 1, 42);
+insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(43, 4300, 1, 43);
+insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(44, 2000, 1, 44);
 
 --KLIJENTI
 insert into klijent(id, adresa, brojPasosa, brojTelefona, email, ime, jmbg, prezime) values(1, 'Doze Djerdja 7 Novi Sad', '00000007', '0641783647','stefan.varajic@email.com', 'Stefan', '1501389800000', 'Varajic');

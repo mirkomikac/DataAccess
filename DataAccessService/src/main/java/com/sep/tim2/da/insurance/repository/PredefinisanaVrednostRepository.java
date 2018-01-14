@@ -12,4 +12,6 @@ public interface PredefinisanaVrednostRepository extends JpaRepository<Predefini
 
 	Collection<PredefinisanaVrednost> findPredefinisanaVrednostsByTipAtributaId(Long tipAtributaId);
 	
+	Collection<PredefinisanaVrednost> findPredefinisanaVrednostsByTipAtributaKontekstTipoviOsiguranjaOsiguravajucaKucaId(Long osiguravajucaKucaId);
+	
 }
