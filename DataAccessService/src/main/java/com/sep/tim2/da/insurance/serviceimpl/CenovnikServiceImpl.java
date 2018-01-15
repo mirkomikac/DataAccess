@@ -68,8 +68,7 @@ public class CenovnikServiceImpl implements CenovnikService{
 	}
 	
 	@Override
-	public Cenovnik setAktuelanCenovnik(Long cenovnikId) {
-		Cenovnik noviAktuelniCenovnik = cenovnikRepository.findOne(cenovnikId);
+	public Cenovnik setAktuelanCenovnik(Cenovnik noviAktuelniCenovnik) {
 		Date todayDate = new Date();
 		if(todayDate.getTime() >= noviAktuelniCenovnik.getDatumOd().getTime() && todayDate.getTime() <= noviAktuelniCenovnik.getDatumDo().getTime()) {
 			List<Cenovnik> aktuelniCenovnici = cenovnikRepository.findCenovniksByOsiguravajucaKucaIdAndAktuelan(noviAktuelniCenovnik.getOsiguravajucaKuca().getId(), true);

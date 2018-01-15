@@ -59,10 +59,10 @@ public class CenovnikController {
 		return cenovnikService.getAktuelanCenovnik(osiguravajucaKucaId);
 	}
 	
-	@GetMapping("/aktuelan/{cenovnikId}")
+	@PostMapping("/aktuelan")
 	@ResponseBody
-	public Cenovnik setAktuelanCenovnikZaOsiguravajucuKucu(@PathVariable("cenovnikId")Long cenovnikId) {
-		return cenovnikService.setAktuelanCenovnik(cenovnikId);
+	public Cenovnik setAktuelanCenovnikZaOsiguravajucuKucu(@RequestBody Cenovnik cenovnik) {
+		return cenovnikService.setAktuelanCenovnik(cenovnik);
 	}
 	
 	@PostMapping("/{osiguravajucaKucaId}")

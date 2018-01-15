@@ -15,7 +15,7 @@ public interface CenovnikService {
 	Cenovnik getAktuelanCenovnik(Long osiguravajucaKucaId);
 	Cenovnik createCenovnik(Cenovnik cenovnik, Long osiguravajucaKucaId);
 	Cenovnik updateCenovnik(Cenovnik cenovnik, Long osiguravajucaKucaId);
-	Cenovnik setAktuelanCenovnik(Long cenovnikId);
+	Cenovnik setAktuelanCenovnik(Cenovnik cenovnik);
 	void deleteCenovnik(Long id);
 	
 }
