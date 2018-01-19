@@ -24,13 +24,69 @@ public class Uplata implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private StatusUplate status;
 	
+	@Column(length = 30)
+	private String trgovacId;
+	
+	@Column(length = 100)
+	private String lozinkaTrgovca;
+
+	@Column(precision=10, scale=2)
+	private double iznos;
+	
 	@Column
 	private Date datumUplate;
+	
+	@Column
+	private String errorUrl;
+	
+	@Column
+	private String nacinPlacanja;
 	
 	@ManyToOne
 	private Osiguranje osiguranje;
 	
 	public Uplata() {
+	}
+	
+	public String getNacinPlacanja() {
+		return nacinPlacanja;
+	}
+
+	public void setNacinPlacanja(String nacinPlacanja) {
+		this.nacinPlacanja = nacinPlacanja;
+	}
+
+	public String getErrorUrl() {
+		return errorUrl;
+	}
+
+	public void setErrorUrl(String errorUrl) {
+		this.errorUrl = errorUrl;
+	}
+
+
+	public String getTrgovacId() {
+		return trgovacId;
+	}
+
+	public void setTrgovacId(String trgovacId) {
+		this.trgovacId = trgovacId;
+	}
+
+	public String getLozinkaTrgovca() {
+		return lozinkaTrgovca;
+	}
+
+	public void setLozinkaTrgovca(String lozinkaTrgovca) {
+		this.lozinkaTrgovca = lozinkaTrgovca;
+	}
+
+	public double getIznos() {
+		return iznos;
+	}
+
+	public void setIznos(double iznos) {
+		this.iznos = iznos;
 	}
 
 	public Long getId() {

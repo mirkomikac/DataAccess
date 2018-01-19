@@ -2,6 +2,7 @@ package com.sep.tim2.da.insurance.serviceimpl;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,13 +38,24 @@ public class CenovnikServiceImpl implements CenovnikService{
 	}
 	
 	@Override
-	public Cenovnik getCenovnikZaOsiguravajucuKucu(Long osiguravajucaKucaId, Date date) {
+	public List<Cenovnik> getCenovniciZaOsiguravajucuKucu(Long osiguravajucaKucaId, Date date) {
 		return cenovnikRepository.findCenobnikByOsiguravajucaKucaIdAndDate(osiguravajucaKucaId, date);
+	}
+
+	@Override
+	public List<Cenovnik> getCenovniciZaOsiguravajucuKucu(Long osiguravajucaKucaId) {
+		return cenovnikRepository.findCenovniksByOsiguravajucaKucaId(osiguravajucaKucaId);
+	}
+
+	@Override
+	public Cenovnik getAktuelanCenovnik(Long osiguravajucaKucaId) {
+		return cenovnikRepository.findAktuelanCenovnikZaDatum(osiguravajucaKucaId, new Date(), true);
 	}
 
 	@Override
 	public Cenovnik createCenovnik(Cenovnik cenovnik, Long osiguravajucaKucaId) {
 		OsiguravajucaKuca osiguravajucaKuca = osiguravajucaKucaService.getOsiguravajucaKuca(osiguravajucaKucaId);
+		cenovnik.getStavkeCenovnika().forEach(stavka -> stavka.setCenovnik(cenovnik));
 		cenovnik.setOsiguravajucaKuca(osiguravajucaKuca);
 		return cenovnikRepository.save(cenovnik);
 	}
@@ -53,6 +65,21 @@ public class CenovnikServiceImpl implements CenovnikService{
 		Cenovnik cenovnik = cenovnikRepository.findOne(updateCenovnik.getId());
 		updateCenovnik.setStavkeCenovnika(cenovnik.getStavkeCenovnika());
 		return this.createCenovnik(updateCenovnik, osiguravajucaKucaId);
+	}
+	
+	@Override
+	public Cenovnik setAktuelanCenovnik(Cenovnik noviAktuelniCenovnik) {
+		Date todayDate = new Date();
+		if(todayDate.getTime() >= noviAktuelniCenovnik.getDatumOd().getTime() && todayDate.getTime() <= noviAktuelniCenovnik.getDatumDo().getTime()) {
+			List<Cenovnik> aktuelniCenovnici = cenovnikRepository.findCenovniksByOsiguravajucaKucaIdAndAktuelan(noviAktuelniCenovnik.getOsiguravajucaKuca().getId(), true);
+			aktuelniCenovnici.forEach(cenovnik -> {
+				cenovnik.setAktuelan(false);
+				cenovnikRepository.save(cenovnik);
+			});
+			noviAktuelniCenovnik.setAktuelan(true);
+			return cenovnikRepository.save(noviAktuelniCenovnik);
+		}
+		return null;
 	}
 
 	@Override

@@ -27,8 +27,13 @@ public class PredefinisanaVrednostServiceImpl implements PredefinisanaVrednostSe
 	}
 
 	@Override
-	public Collection<PredefinisanaVrednost> getPredefinisaneVrednoste() {
+	public Collection<PredefinisanaVrednost> getPredefinisaneVrednosti() {
 		return predefinisanaVrednostRepository.findAll();
+	}
+	
+	@Override
+	public Collection<PredefinisanaVrednost> getPredefinisaneVrednostiZaOsiguravajucuKucu(Long osiguravajucaKucaId) {
+		return predefinisanaVrednostRepository.findPredefinisanaVrednostsByTipAtributaKontekstTipoviOsiguranjaOsiguravajucaKucaId(osiguravajucaKucaId);
 	}
 	
 	@Override

@@ -6,7 +6,8 @@ import com.sep.tim2.da.insurance.model.PredefinisanaVrednost;
 
 public interface PredefinisanaVrednostService {
 	
-	Collection<PredefinisanaVrednost> getPredefinisaneVrednoste();
+	Collection<PredefinisanaVrednost> getPredefinisaneVrednosti();
+	Collection<PredefinisanaVrednost> getPredefinisaneVrednostiZaOsiguravajucuKucu(Long osiguravajucaKucaId);
 	Collection<PredefinisanaVrednost> getPredefinisaneVrednostiZaTipAtributa(Long tipAtributaId);
 	PredefinisanaVrednost getPredefinisanaVrednost(Long id);
 	PredefinisanaVrednost createPredefinisanaVrednost(PredefinisanaVrednost predefinisanaVrednost, Long tipAtributaId);

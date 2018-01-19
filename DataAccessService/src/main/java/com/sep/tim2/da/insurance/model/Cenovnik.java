@@ -33,6 +33,9 @@ public class Cenovnik implements Serializable{
 	@Column
 	private Date datumDo;
 	
+	@Column
+	private Boolean aktuelan;
+	
 	@ManyToOne
 	private OsiguravajucaKuca osiguravajucaKuca;
 	
@@ -64,6 +67,14 @@ public class Cenovnik implements Serializable{
 
 	public void setDatumDo(Date datumDo) {
 		this.datumDo = datumDo;
+	}
+	
+	public Boolean getAktuelan() {
+		return aktuelan;
+	}
+
+	public void setAktuelan(Boolean aktuelan) {
+		this.aktuelan = aktuelan;
 	}
 	
 	public OsiguravajucaKuca getOsiguravajucaKuca() {
