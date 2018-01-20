@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sep.tim2.da.payment.model.Osiguranje;
+import com.sep.tim2.da.payment.model.StatusUplate;
 import com.sep.tim2.da.payment.model.Uplata;
 import com.sep.tim2.da.payment.repository.UplataRepository;
 import com.sep.tim2.da.payment.service.OsiguranjeService;
@@ -29,6 +30,7 @@ public class UplataServiceImpl implements UplataService{
 	public Uplata createUplata(Uplata uplata, Long osiguranjeId) {
 		Osiguranje osiguranje = polisaService.getOsiguranje(osiguranjeId);
 		uplata.setOsiguranje(osiguranje);
+		uplata.setStatus(StatusUplate.NA_OBRADI);
 		return uplataRepository.save(uplata);
 	}
 
