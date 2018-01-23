@@ -11,5 +11,8 @@ public interface UplataService {
 	List<Uplata> getUplateZaOsiguranje(Long osiguranjeId);
 	Uplata updateUplata(Uplata uplata, Long osiguranjeId);
 	void deleteUplata(Long uplataId);
+	void successUplata(Long uplataId);
+	void cancelUplata(Long uplataId);
+	void errorUplata(Long uplataId);
 	
 }

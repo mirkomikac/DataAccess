@@ -24,6 +24,9 @@ public class Uplata implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private StatusUplate status;
 	
+	@Enumerated(EnumType.STRING)
+	private TipUplate tipUplate;
+	
 	@Column(length = 30)
 	private String trgovacId;
 	
@@ -103,6 +106,14 @@ public class Uplata implements Serializable{
 
 	public void setStatus(StatusUplate status) {
 		this.status = status;
+	}
+
+	public TipUplate getTipUplate() {
+		return tipUplate;
+	}
+
+	public void setTipUplate(TipUplate tipUplate) {
+		this.tipUplate = tipUplate;
 	}
 
 	public Date getDatumUplate() {

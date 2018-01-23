@@ -56,4 +56,19 @@ public class UplataController {
 		uplataService.deleteUplata(uplataId);
 	}
 	
+	@PostMapping("/success")
+	public void successUplata(@RequestBody Long uplataId) {
+		uplataService.successUplata(uplataId);
+	}
+	
+	@PostMapping("/cancel")
+	public void cancelUplata(@RequestBody Long uplataId) {
+		uplataService.cancelUplata(uplataId);
+	}
+	
+	@PostMapping("/error")
+	public void errorUplata(@RequestBody Long uplataId) {
+		uplataService.errorUplata(uplataId);
+	}
+	
 }

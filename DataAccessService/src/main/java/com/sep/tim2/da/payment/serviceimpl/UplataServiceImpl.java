@@ -18,17 +18,17 @@ import com.sep.tim2.da.payment.service.UplataService;
 public class UplataServiceImpl implements UplataService{
 
 	private final UplataRepository uplataRepository;
-	private final OsiguranjeService polisaService;
+	private final OsiguranjeService osiguranjeService;
 	
 	@Autowired
-	public UplataServiceImpl(UplataRepository uplataRepository, OsiguranjeService polisaService) {
+	public UplataServiceImpl(UplataRepository uplataRepository, OsiguranjeService osiguranjeService) {
 		this.uplataRepository = uplataRepository;
-		this.polisaService = polisaService;
+		this.osiguranjeService = osiguranjeService;
 	}
 	
 	@Override
 	public Uplata createUplata(Uplata uplata, Long osiguranjeId) {
-		Osiguranje osiguranje = polisaService.getOsiguranje(osiguranjeId);
+		Osiguranje osiguranje = osiguranjeService.getOsiguranje(osiguranjeId);
 		uplata.setOsiguranje(osiguranje);
 		uplata.setStatus(StatusUplate.NA_OBRADI);
 		return uplataRepository.save(uplata);
@@ -54,6 +54,27 @@ public class UplataServiceImpl implements UplataService{
 	@Override
 	public void deleteUplata(Long uplataId) {
 		uplataRepository.delete(uplataId);
+	}
+
+	@Override
+	public void successUplata(Long uplataId) {
+		Uplata uplata = uplataRepository.findOne(uplataId);
+		uplata.setStatus(StatusUplate.UPLACENO);
+		uplataRepository.save(uplata);
+	}
+
+	@Override
+	public void cancelUplata(Long uplataId) {
+		Uplata uplata = uplataRepository.findOne(uplataId);
+		uplata.setStatus(StatusUplate.ODBIJENO);
+		uplataRepository.save(uplata);
+	}
+
+	@Override
+	public void errorUplata(Long uplataId) {
+		Uplata uplata = uplataRepository.findOne(uplataId);
+		uplata.setStatus(StatusUplate.ODBIJENO);
+		uplataRepository.save(uplata);
 	}
 
 }
