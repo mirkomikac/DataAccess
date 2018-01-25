@@ -42,7 +42,7 @@ insert into tiposiguranja_kontekstatributa(tipoviOsiguranja_id, konteksti_id) va
 
 --ATRIBUTI PODRZANIH OSIGURANJA
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(1, 'DATE', null, null, 'Datum pocetka', true, null, true, false, 3);
-insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(2, 'NUMBER', 3, 1, 'Trajanje osiguranja', true, '\\d+', true, true, 3);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(2, 'DATE', null, null, 'Datum zavrsetka', true, null, true, true, 3);
 
 --ATRIBUTI MEDJUNARODNOG PUTNOG OSIGURANJA
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(3, 'TEXT', null, null, 'Region u koji se putuje', true, null, false, true, 6);
@@ -52,10 +52,10 @@ insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, oba
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(7, 'TEXT', null, null, 'Do kog iznosa je korisnik osiguran', true, null, false, true, 6);
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(8, 'TEXT', 40, 1, 'Ime', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 1);
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(9, 'TEXT', 40, 1, 'Prezime', true, "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", true, false, 1);
-insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(10, 'TEXT', 13, 13, 'JMBG', true, '\\d+', true, false, 1);
-insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(11, 'TEXT', 25, 1, 'Broj pasosa', true, '\\d+', true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(10, 'NUMBER', 13, 13, 'JMBG', true, '\\d+', true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(11, 'NUMBER', 25, 1, 'Broj pasosa', true, '\\d+', true, false, 1);
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(12, 'TEXT', 80, 1, 'Adresa', true, '^[a-zA-Z]+[a-zA-Z ]+[\\d]+$', true, false, 1);
-insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(13, 'TEXT', 20, 1, 'Broj telefona', true, '\\d+', true, false, 1);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(13, 'NUMBER', 20, 1, 'Broj telefona', true, '\\d+', true, false, 1);
 
 
 --ATRIBUTI OSIGURANJA NEPOKRETNOSTI
@@ -88,7 +88,7 @@ insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, oba
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(37, 'NUMBER', 13, 13, 'JMBG', true, '\\d+', true, false, 10);
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(38, 'NUMBER', 25, 1, 'Broj pasosa', true, '\\d+', true, false, 10);
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(39, 'TEXT', 80, 1, 'Adresa', true, '^[a-zA-Z]+[a-zA-Z ]+[\\d]+$', true, false, 10);
-insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(40, 'TEXT', 20, 1, 'Broj telefona', true, '\\d+', true, false, 10);
+insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(40, 'NUMBER', 20, 1, 'Broj telefona', true, '\\d+', true, false, 10);
 insert into tipatributa(id, domen, maksimalnaDuzina, minimalnaDuzina, naziv, obavezan, regex, slobodnoPolje, uticeNaCenu, kontekst_id) values(14, 'EMAIL', 50, 1, 'Email', true, '^[a-zA-Z\\d]+[@ ][a-z\\d]+\\.[a-z]+$', true, false, 10);
 
 
@@ -250,8 +250,8 @@ insert into osiguranje(id, datumSklapanja, klijent_id, tipOsiguranja_id) values(
 insert into osiguranje(id, datumSklapanja, klijent_id, tipOsiguranja_id) values(2, '2017-08-14 00:00:00', 1, 3);
 
 --VREDNOSTI ZA MEDJUNARODNO PUTNO OSIGURANJE
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(1, '2017-08-15 00:00:00', 1, 34);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(2, '5', 1, 2);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(1, '2017-08-15 00:00:00', 1, 1);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(2, '2017-08-25 00:00:00', 1, 2);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(3, 'Evropa', 1, 3);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(4, '2', 1, 4);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(5, 'Od 18 do 60 godina', 1, 5);
@@ -263,24 +263,39 @@ insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(11, '00117280', 1, 11);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(12, 'Rumenacka 15 Novi Sad', 1, 12);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(13, '0647772159', 1, 13);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(14, 'marko.kljajic@email.com', 1, 14);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(15, 'Stefan', 1, 8);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(16, 'Varajic', 1, 9);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(17, '1501389800000', 1, 10);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(18, '00000007', 1, 11);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(19, 'Doze Djerdja 7 Novi Sad', 1, 12);
 insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(20, '0641783647', 1, 13);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(21, 'stefan.varajic@email.com', 1, 14);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(22, 'Stefan', 1, 35);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(23, 'Varajic', 1, 36);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(24, '1501389800000', 1, 37);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(25, '00000007', 1, 38);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(26, 'Doze Djerdja 7 Novi Sad', 1, 39);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(27, '0641783647', 1, 40);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(28, 'stefan.varajic@email.com', 1, 14);
 
 --VREDNOSTI ZA OSIGURANJE POMOCI NA PUTU
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(22, '2017-08-15 00:00:00', 2, 29);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(23, '4', 2, 1);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(24, 'Od 500 do 1500 EUR', 2, 23);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(25, 'Mercedes', 2, 27);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(26, 'Putnicko', 2, 28);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(27, '2007', 2, 28);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(28, 'NS315HG', 2, 29);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(29, '16984847', 2, 30);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(30, 'Nikola', 2, 8);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(31, 'Sajic', 2, 9);
-insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(32, '2407994780147', 2, 34);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(29, '2017-08-15 00:00:00', 2, 1);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(30, '2017-08-25 00:00:00', 2, 2);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(31, 'Preko 300 km', 2, 23);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(32, 'Nema', 2, 24);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(33, 'Nema', 2, 25);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(34, 'Nema', 2, 26);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(35, 'Mercedes', 2, 27);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(36, 'Putnicko', 2, 28);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(37, '2007', 2, 29);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(38, 'NS315HG', 2, 30);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(39, '16984847', 2, 31);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(40, 'Nikola', 2, 32);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(41, 'Sajic', 2, 33);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(42, '2407994780147', 2, 34);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(43, 'Nikola', 1, 35);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(44, 'Sajic', 1, 36);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(45, '1501389800000', 1, 37);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(46, '00000007', 1, 38);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(47, 'DETELINARA 7 Novi Sad', 1, 39);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(48, '0641234567', 1, 40);
+insert into vrednostatributaosiguranja(id, vrednost, osiguranje_id, tipAtributa_id) values(49, 'nikola.sajic@email.com', 1, 14);
