@@ -76,13 +76,13 @@ public class OsiguranjeServiceImpl implements OsiguranjeService{
 				String nazivAtributa = tipAtributa.getNaziv();
 				String vrednostAtributa = vrednost.getVrednost();
 				switch(nazivAtributa) {
-					case "Ime": 
+					case "Ime osiguravaca": 
 								newKlijent.setIme(vrednostAtributa);
 								break;
-					case "Prezime": 
+					case "Prezime osiguravaca": 
 								newKlijent.setPrezime(vrednostAtributa);
 								break;
-					case "JMBG": 
+					case "JMBG osiguravaca": 
 								newKlijent.setJmbg(vrednostAtributa);
 								break;
 					case "Broj pasosa": 

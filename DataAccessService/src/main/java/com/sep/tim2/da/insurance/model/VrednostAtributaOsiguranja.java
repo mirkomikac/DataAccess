@@ -18,6 +18,8 @@ public class VrednostAtributaOsiguranja implements Serializable{
 	private Long id;
 	@Column
 	private String vrednost;
+	@Column
+	private Integer kontrolniBroj;
 	@ManyToOne
 	private TipAtributa tipAtributa;
 	@ManyToOne
@@ -40,6 +42,14 @@ public class VrednostAtributaOsiguranja implements Serializable{
 
 	public void setVrednost(String vrednost) {
 		this.vrednost = vrednost;
+	}
+
+	public Integer getKontrolniBroj() {
+		return kontrolniBroj;
+	}
+
+	public void setKontrolniBroj(Integer kontrolniBroj) {
+		this.kontrolniBroj = kontrolniBroj;
 	}
 
 	public TipAtributa getTipAtributa() {

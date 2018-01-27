@@ -42,21 +42,10 @@ public class Uplata implements Serializable{
 	@Column
 	private String errorUrl;
 	
-	@Column
-	private String nacinPlacanja;
-	
 	@ManyToOne
 	private Osiguranje osiguranje;
 	
 	public Uplata() {
-	}
-	
-	public String getNacinPlacanja() {
-		return nacinPlacanja;
-	}
-
-	public void setNacinPlacanja(String nacinPlacanja) {
-		this.nacinPlacanja = nacinPlacanja;
 	}
 
 	public String getErrorUrl() {

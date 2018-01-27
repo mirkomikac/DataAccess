@@ -1,6 +1,10 @@
 package com.sep.tim2.da.payment.controller;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sep.tim2.da.payment.model.Uplata;
 import com.sep.tim2.da.payment.service.UplataService;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @RequestMapping("/uplate")
@@ -71,4 +77,9 @@ public class UplataController {
 		uplataService.errorUplata(uplataId);
 	}
 	
+	@GetMapping("/getIzvestaj/{uplataId}")
+	public void generateJasperReport(@PathVariable("uplataId")Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
+		uplataService.generateJasperReport(uplataId, response);
+	}
+
 }
