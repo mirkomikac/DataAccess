@@ -103,7 +103,7 @@ public class UplataServiceImpl implements UplataService{
 	    params.put("osiguranjeId", osiguranje.getId());
 	    
 	    JasperPrint jasperPrint  = JasperFillManager.fillReport(getClass().getResource("/jasper/osiguranjeIzvestaj.jasper").openStream(),params, dataSource.getConnection());
-	    File pdfReport = new File(System.getProperty("user.home") + "/Downloads/" + "osiguranjeIzvestaj.pdf");
+	    File pdfReport = new File(System.getProperty("user.home") + "/Downloads/" + "izvestajZaOsiguranje" + osiguranje.getId() +".pdf");
 		
 	    FileOutputStream fileOutputStream = new FileOutputStream(pdfReport);
 		JasperExportManager.exportReportToPdfStream(jasperPrint, fileOutputStream);
