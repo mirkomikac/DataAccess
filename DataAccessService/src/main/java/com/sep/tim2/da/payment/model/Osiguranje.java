@@ -30,7 +30,7 @@ public class Osiguranje implements Serializable{
 	private Date datumSklapanja;
 	
 	@Column
-	private double iznos;
+	private Double iznos;
 
 	@OneToMany(mappedBy = "osiguranje", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Uplata> uplate;
@@ -50,11 +50,11 @@ public class Osiguranje implements Serializable{
 		return datumSklapanja;
 	}
 	
-	public double getIznos() {
+	public Double getIznos() {
 		return iznos;
 	}
 
-	public void setIznos(double iznos) {
+	public void setIznos(Double iznos) {
 		this.iznos = iznos;
 	}
 

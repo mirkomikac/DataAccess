@@ -96,22 +96,14 @@ public class UplataServiceImpl implements UplataService{
 	}
 	
 	@Override
-	public void generateJasperReport(Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
+	public File generateJasperReport(Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
 		Osiguranje osiguranje = uplataRepository.findOne(uplataId).getOsiguranje();
 	    Map<String,Object> params = new HashMap<>();
 	    params.put("osiguranjeId", osiguranje.getId());
 	    
 		JasperPrint jasperPrint  = JasperFillManager.fillReport(getClass().getResource("/jasper/osiguranjeIzvestaj.jasper").openStream(),params, dataSource.getConnection());
 	    File pdfReport = new File(System.getProperty("user.home") + "/Downloads/" + "osiguranjeIzvestaj.pdf");
-		
-	    FileOutputStream fileOutputStream = new FileOutputStream(pdfReport);
-		JasperExportManager.exportReportToPdfStream(jasperPrint, fileOutputStream);
-		FileInputStream fileInputStream = new FileInputStream(pdfReport);
-		
-		IOUtils.copy(fileInputStream, response.getOutputStream());
-		fileInputStream.close();
-		fileOutputStream.close();
-		response.flushBuffer();
+		return pdfReport;
 	}
 
 }

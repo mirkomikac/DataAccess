@@ -1,5 +1,6 @@
 package com.sep.tim2.da.payment.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -20,6 +21,6 @@ public interface UplataService {
 	void successUplata(Long uplataId);
 	void cancelUplata(Long uplataId);
 	void errorUplata(Long uplataId);
-	void generateJasperReport(Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException;
+	File generateJasperReport(Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException;
 	
 }

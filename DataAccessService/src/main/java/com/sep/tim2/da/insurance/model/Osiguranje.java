@@ -31,7 +31,7 @@ public class Osiguranje implements Serializable{
 	private Date datumSklapanja;
 	
 	@Column
-	private double iznos;
+	private Double iznos;
 	
 
 	@ManyToOne
@@ -54,11 +54,11 @@ public class Osiguranje implements Serializable{
 		this.id = id;
 	}
 	
-	public double getIznos() {
+	public Double getIznos() {
 		return iznos;
 	}
 
-	public void setIznos(double iznos) {
+	public void setIznos(Double iznos) {
 		this.iznos = iznos;
 	}
 	

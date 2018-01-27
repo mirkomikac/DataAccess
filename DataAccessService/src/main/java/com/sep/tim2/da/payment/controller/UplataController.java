@@ -1,5 +1,6 @@
 package com.sep.tim2.da.payment.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sep.tim2.da.insurance.service.NotificationService;
 import com.sep.tim2.da.payment.model.Uplata;
 import com.sep.tim2.da.payment.service.UplataService;
 
@@ -27,10 +29,12 @@ import net.sf.jasperreports.engine.JRException;
 public class UplataController {
 
 	private final UplataService uplataService;
+	private final NotificationService notificationService;
 	
 	@Autowired
-	public UplataController(UplataService uplataService) {
+	public UplataController(UplataService uplataService, NotificationService notificationService) {
 		this.uplataService = uplataService;
+		this.notificationService = notificationService;
 	}
 	
 	@PostMapping("/{osiguranjeId}")
@@ -63,9 +67,11 @@ public class UplataController {
 	}
 	
 	@PostMapping("/success")
-	public void successUplata(@RequestBody Long uplataId) {
+	public Uplata successUplata(@RequestBody Long uplataId) {
 		uplataService.successUplata(uplataId);
+		return notificationService.notifyStandardParties(uplataId);
 	}
+
 	
 	@PostMapping("/cancel")
 	public void cancelUplata(@RequestBody Long uplataId) {
@@ -78,8 +84,8 @@ public class UplataController {
 	}
 	
 	@GetMapping("/getIzvestaj/{uplataId}")
-	public void generateJasperReport(@PathVariable("uplataId")Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
-		uplataService.generateJasperReport(uplataId, response);
+	public File generateJasperReport(@PathVariable("uplataId")Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
+		return uplataService.generateJasperReport(uplataId, response);
 	}
 
 }

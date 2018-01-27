@@ -7,18 +7,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sep.tim2.da.insurance.model.Klijent;
+import com.sep.tim2.da.insurance.model.Osiguranje;
 import com.sep.tim2.da.insurance.repository.KlijentRepository;
+import com.sep.tim2.da.insurance.repository.OsiguranjeRepository;
 import com.sep.tim2.da.insurance.service.KlijentService;
+import com.sep.tim2.da.payment.model.Uplata;
+import com.sep.tim2.da.payment.repository.UplataRepository;
 
 @Service
 @Transactional
 public class KlijentServiceImpl implements KlijentService {
 
 	private final KlijentRepository klijentRepository;
+	private final UplataRepository uplataRepository;
+	private final OsiguranjeRepository osiguranjeRepository;
 	
 	@Autowired
-	public KlijentServiceImpl(KlijentRepository klijentRepository) {
+	public KlijentServiceImpl(KlijentRepository klijentRepository, UplataRepository uplataRepository, OsiguranjeRepository osiguranjeRepository) {
 		this.klijentRepository = klijentRepository;
+		this.uplataRepository = uplataRepository;
+		this.osiguranjeRepository = osiguranjeRepository;
 	}
 
 	@Override
@@ -54,6 +62,14 @@ public class KlijentServiceImpl implements KlijentService {
 	@Override
 	public void deleteKlijent(Long klijentId) {
 		klijentRepository.delete(klijentId);
+	}
+
+	@Override
+	public Klijent getKlijetForUplata(Long uplataId) {
+		Uplata uplata = uplataRepository.findOne(uplataId);
+		
+		Osiguranje osiguranje = osiguranjeRepository.findOne(uplata.getOsiguranje().getId());
+		return osiguranje.getKlijent();
 	}
 	
 }

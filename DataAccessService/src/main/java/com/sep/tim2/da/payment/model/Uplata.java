@@ -34,7 +34,7 @@ public class Uplata implements Serializable{
 	private String lozinkaTrgovca;
 
 	@Column(precision=10, scale=2)
-	private double iznos;
+	private Double iznos;
 	
 	@Column
 	private Date datumUplate;
@@ -73,11 +73,11 @@ public class Uplata implements Serializable{
 		this.lozinkaTrgovca = lozinkaTrgovca;
 	}
 
-	public double getIznos() {
+	public Double getIznos() {
 		return iznos;
 	}
 
-	public void setIznos(double iznos) {
+	public void setIznos(Double iznos) {
 		this.iznos = iznos;
 	}
 

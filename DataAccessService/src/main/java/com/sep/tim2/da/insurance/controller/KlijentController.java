@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,6 +38,12 @@ public class KlijentController {
 	@ResponseBody
 	public Klijent getKlijent(@PathVariable("klijentId")Long klijentId) {
 		return klijentService.getKlijent(klijentId);
+	}
+	
+	@GetMapping("/getKlijentForUplata")
+	@ResponseBody
+	public Klijent getKlijentForUplata(@RequestParam(value="uplataId", required=true) Long uplataId) {
+		return klijentService.getKlijetForUplata(uplataId);
 	}
 	
 	@GetMapping

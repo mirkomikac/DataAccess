@@ -243,7 +243,7 @@ insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) val
 insert into stavkacenovnika(id, suma, cenovnik_id, predefinisanaVrednost_id) values(44, 2000, 1, 44);
 
 --KLIJENTI
-insert into klijent(id, adresa, brojPasosa, brojTelefona, email, ime, jmbg, prezime) values(1, 'Doze Djerdja 7 Novi Sad', '00000007', '0641783647','stefan.varajic@email.com', 'Stefan', '1501389800000', 'Varajic');
+insert into klijent(id, adresa, brojPasosa, brojTelefona, email, ime, jmbg, prezime) values(1, 'Doze Djerdja 7 Novi Sad', '00000007', '0641783647','mmikac27@email.com', 'Stefan', '1501389800000', 'Varajic');
 
 --OSIGURANJA
 insert into osiguranje(id, datumSklapanja, iznos, klijent_id, tipOsiguranja_id) values(1, '2017-08-14 00:00:00', 3578.36, 1, 1);

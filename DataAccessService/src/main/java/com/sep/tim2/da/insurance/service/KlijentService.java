@@ -12,5 +12,6 @@ public interface KlijentService {
 	List<Klijent> getKlijenti();
 	Klijent updateKlijent(Klijent klijent);
 	void deleteKlijent(Long klijentId);
+	Klijent getKlijetForUplata(Long uplataId);
 	
 }
