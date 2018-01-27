@@ -1,13 +1,12 @@
 package com.sep.tim2.da.payment.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -83,9 +82,11 @@ public class UplataController {
 		uplataService.errorUplata(uplataId);
 	}
 	
-	@GetMapping("/getIzvestaj/{uplataId}")
-	public File generateJasperReport(@PathVariable("uplataId")Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
-		return uplataService.generateJasperReport(uplataId, response);
+	@GetMapping(value="/getIzvestaj/{uplataId}", 
+	        produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	@ResponseBody
+	public HttpEntity<byte[]> generateJasperReport(@PathVariable("uplataId")Long uplataId) throws JRException, IOException, SQLException {
+		return uplataService.generateJasperReport(uplataId);
 	}
 
 }

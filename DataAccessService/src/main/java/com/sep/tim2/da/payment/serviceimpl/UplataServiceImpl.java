@@ -9,11 +9,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -96,14 +97,27 @@ public class UplataServiceImpl implements UplataService{
 	}
 	
 	@Override
-	public File generateJasperReport(Long uplataId, HttpServletResponse response) throws JRException, IOException, SQLException {
+	public HttpEntity<byte[]> generateJasperReport(Long uplataId) throws JRException, IOException, SQLException {
 		Osiguranje osiguranje = uplataRepository.findOne(uplataId).getOsiguranje();
 	    Map<String,Object> params = new HashMap<>();
 	    params.put("osiguranjeId", osiguranje.getId());
 	    
-		JasperPrint jasperPrint  = JasperFillManager.fillReport(getClass().getResource("/jasper/osiguranjeIzvestaj.jasper").openStream(),params, dataSource.getConnection());
+	    JasperPrint jasperPrint  = JasperFillManager.fillReport(getClass().getResource("/jasper/osiguranjeIzvestaj.jasper").openStream(),params, dataSource.getConnection());
 	    File pdfReport = new File(System.getProperty("user.home") + "/Downloads/" + "osiguranjeIzvestaj.pdf");
-		return pdfReport;
+		
+	    FileOutputStream fileOutputStream = new FileOutputStream(pdfReport);
+		JasperExportManager.exportReportToPdfStream(jasperPrint, fileOutputStream);
+		
+		FileInputStream fileInputStream = new FileInputStream(pdfReport);
+		byte[] file = IOUtils.toByteArray(fileInputStream);
+	    HttpHeaders header = new HttpHeaders();
+	    header.set("Content-Disposition", "attachment; filename="+ pdfReport.getName());
+	    header.setContentLength(file.length);
+
+	    fileOutputStream.close();
+	    fileInputStream.close();
+	    
+	    return new HttpEntity<byte[]>(file, header);
 	}
 
 }
