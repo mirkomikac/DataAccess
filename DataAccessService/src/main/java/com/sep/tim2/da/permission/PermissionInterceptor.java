@@ -24,7 +24,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
 		HandlerMethod handlerMethod = (HandlerMethod) handler;
 		Method method = (Method) handlerMethod.getMethod();	
 		
-		log.error("METHOD TYPE: [{}] ON PATH: [{}].", request.getMethod(), request.getRequestURI());
+		log.info("METHOD TYPE: [{}] ON PATH: [{}].", request.getMethod(), request.getRequestURI());
 
 		return true;
 	}
